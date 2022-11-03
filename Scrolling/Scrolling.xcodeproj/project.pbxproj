@@ -7,126 +7,129 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22D2913260E00178F9E /* CardEditViewController.swift */; };
-		451AC230291337C300178F9E /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22F291337C300178F9E /* FlashCard.swift */; };
-		451AC23229133A2900178F9E /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23129133A2900178F9E /* Folder.swift */; };
-		451AC23429133AF000178F9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23329133AF000178F9E /* User.swift */; };
-		458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA932904C7D800E6C385 /* AppDelegate.swift */; };
-		458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA952904C7D800E6C385 /* SceneDelegate.swift */; };
-		458DBA982904C7D800E6C385 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA972904C7D800E6C385 /* ViewController.swift */; };
-		458DBA9B2904C7D800E6C385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458DBA992904C7D800E6C385 /* Main.storyboard */; };
-		458DBA9D2904C7DB00E6C385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458DBA9C2904C7DB00E6C385 /* Assets.xcassets */; };
-		458DBAA02904C7DB00E6C385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458DBA9E2904C7DB00E6C385 /* LaunchScreen.storyboard */; };
-		4593655C2913239E0085AA73 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655B2913239E0085AA73 /* FolderViewController.swift */; };
-		4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655D291323B60085AA73 /* ProfileViewController.swift */; };
-		45936560291323C30085AA73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655F291323C30085AA73 /* LoginViewController.swift */; };
-		45936562291323D90085AA73 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45936561291323D90085AA73 /* LibraryViewController.swift */; };
+		458A56B32908805600340E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A56B22908805600340E31 /* AppDelegate.swift */; };
+		458A56B52908805600340E31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A56B42908805600340E31 /* SceneDelegate.swift */; };
+		458A56B72908805600340E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A56B62908805600340E31 /* ViewController.swift */; };
+		458A56BA2908805600340E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458A56B82908805600340E31 /* Main.storyboard */; };
+		458A56BC2908805800340E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458A56BB2908805800340E31 /* Assets.xcassets */; };
+		458A56BF2908805800340E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458A56BD2908805800340E31 /* LaunchScreen.storyboard */; };
+		DADE89A376DE90DE08821E75 /* Pods_Scrolling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEEB29F85DD3F7CF01D8658 /* Pods_Scrolling.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		451AC22D2913260E00178F9E /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
-		451AC22F291337C300178F9E /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
-		451AC23129133A2900178F9E /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
-		451AC23329133AF000178F9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		458DBA902904C7D700E6C385 /* Scribbly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scribbly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		458DBA932904C7D800E6C385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		458DBA952904C7D800E6C385 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		458DBA972904C7D800E6C385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		458DBA9A2904C7D800E6C385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		458DBA9C2904C7DB00E6C385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		458DBA9F2904C7DB00E6C385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		458DBAA12904C7DB00E6C385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4593655B2913239E0085AA73 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
-		4593655D291323B60085AA73 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		4593655F291323C30085AA73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		45936561291323D90085AA73 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		2542E17C22CBD26AEB1C1124 /* Pods-Scrolling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scrolling.release.xcconfig"; path = "Target Support Files/Pods-Scrolling/Pods-Scrolling.release.xcconfig"; sourceTree = "<group>"; };
+		458A56AF2908805600340E31 /* Scrolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		458A56B22908805600340E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		458A56B42908805600340E31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		458A56B62908805600340E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		458A56B92908805600340E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		458A56BB2908805800340E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		458A56BE2908805800340E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		458A56C02908805800340E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		678069C83C014C1B3E604708 /* Pods-Scrolling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scrolling.debug.xcconfig"; path = "Target Support Files/Pods-Scrolling/Pods-Scrolling.debug.xcconfig"; sourceTree = "<group>"; };
+		AEEEB29F85DD3F7CF01D8658 /* Pods_Scrolling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scrolling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		458DBA8D2904C7D700E6C385 /* Frameworks */ = {
+		458A56AC2908805600340E31 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADE89A376DE90DE08821E75 /* Pods_Scrolling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		458DBA872904C7D700E6C385 = {
+		3A6DB7B6E72D5B678B5306A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				458DBA922904C7D800E6C385 /* Scribbly */,
-				458DBA912904C7D700E6C385 /* Products */,
+				678069C83C014C1B3E604708 /* Pods-Scrolling.debug.xcconfig */,
+				2542E17C22CBD26AEB1C1124 /* Pods-Scrolling.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		458A56A62908805600340E31 = {
+			isa = PBXGroup;
+			children = (
+				458A56B12908805600340E31 /* Scrolling */,
+				458A56B02908805600340E31 /* Products */,
+				3A6DB7B6E72D5B678B5306A5 /* Pods */,
+				8D2F2B956533E6BA85FF5772 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		458DBA912904C7D700E6C385 /* Products */ = {
+		458A56B02908805600340E31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				458DBA902904C7D700E6C385 /* Scribbly.app */,
+				458A56AF2908805600340E31 /* Scrolling.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		458DBA922904C7D800E6C385 /* Scribbly */ = {
+		458A56B12908805600340E31 /* Scrolling */ = {
 			isa = PBXGroup;
 			children = (
-				458DBA932904C7D800E6C385 /* AppDelegate.swift */,
-				458DBA952904C7D800E6C385 /* SceneDelegate.swift */,
-				458DBA972904C7D800E6C385 /* ViewController.swift */,
-				458DBA992904C7D800E6C385 /* Main.storyboard */,
-				451AC22D2913260E00178F9E /* CardEditViewController.swift */,
-				4593655B2913239E0085AA73 /* FolderViewController.swift */,
-				4593655D291323B60085AA73 /* ProfileViewController.swift */,
-				4593655F291323C30085AA73 /* LoginViewController.swift */,
-				45936561291323D90085AA73 /* LibraryViewController.swift */,
-				451AC23129133A2900178F9E /* Folder.swift */,
-				451AC23329133AF000178F9E /* User.swift */,
-				451AC22F291337C300178F9E /* FlashCard.swift */,
-				458DBA9C2904C7DB00E6C385 /* Assets.xcassets */,
-				458DBA9E2904C7DB00E6C385 /* LaunchScreen.storyboard */,
-				458DBAA12904C7DB00E6C385 /* Info.plist */,
+				458A56B22908805600340E31 /* AppDelegate.swift */,
+				458A56B42908805600340E31 /* SceneDelegate.swift */,
+				458A56B62908805600340E31 /* ViewController.swift */,
+				458A56B82908805600340E31 /* Main.storyboard */,
+				458A56BB2908805800340E31 /* Assets.xcassets */,
+				458A56BD2908805800340E31 /* LaunchScreen.storyboard */,
+				458A56C02908805800340E31 /* Info.plist */,
 			);
-			path = Scribbly;
+			path = Scrolling;
+			sourceTree = "<group>";
+		};
+		8D2F2B956533E6BA85FF5772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEEEB29F85DD3F7CF01D8658 /* Pods_Scrolling.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		458DBA8F2904C7D700E6C385 /* Scribbly */ = {
+		458A56AE2908805600340E31 /* Scrolling */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 458DBAA42904C7DB00E6C385 /* Build configuration list for PBXNativeTarget "Scribbly" */;
+			buildConfigurationList = 458A56C32908805800340E31 /* Build configuration list for PBXNativeTarget "Scrolling" */;
 			buildPhases = (
-				458DBA8C2904C7D700E6C385 /* Sources */,
-				458DBA8D2904C7D700E6C385 /* Frameworks */,
-				458DBA8E2904C7D700E6C385 /* Resources */,
+				61E186ABA7398FAF4CFCBEE3 /* [CP] Check Pods Manifest.lock */,
+				458A56AB2908805600340E31 /* Sources */,
+				458A56AC2908805600340E31 /* Frameworks */,
+				458A56AD2908805600340E31 /* Resources */,
+				F43CA4FB04543919E3C471FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Scribbly;
-			productName = Scribbly;
-			productReference = 458DBA902904C7D700E6C385 /* Scribbly.app */;
+			name = Scrolling;
+			productName = Scrolling;
+			productReference = 458A56AF2908805600340E31 /* Scrolling.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		458DBA882904C7D700E6C385 /* Project object */ = {
+		458A56A72908805600340E31 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					458DBA8F2904C7D700E6C385 = {
+					458A56AE2908805600340E31 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 458DBA8B2904C7D700E6C385 /* Build configuration list for PBXProject "Scribbly" */;
+			buildConfigurationList = 458A56AA2908805600340E31 /* Build configuration list for PBXProject "Scrolling" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,63 +137,97 @@
 				en,
 				Base,
 			);
-			mainGroup = 458DBA872904C7D700E6C385;
-			productRefGroup = 458DBA912904C7D700E6C385 /* Products */;
+			mainGroup = 458A56A62908805600340E31;
+			productRefGroup = 458A56B02908805600340E31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				458DBA8F2904C7D700E6C385 /* Scribbly */,
+				458A56AE2908805600340E31 /* Scrolling */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		458DBA8E2904C7D700E6C385 /* Resources */ = {
+		458A56AD2908805600340E31 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				458DBAA02904C7DB00E6C385 /* LaunchScreen.storyboard in Resources */,
-				458DBA9D2904C7DB00E6C385 /* Assets.xcassets in Resources */,
-				458DBA9B2904C7D800E6C385 /* Main.storyboard in Resources */,
+				458A56BF2908805800340E31 /* LaunchScreen.storyboard in Resources */,
+				458A56BC2908805800340E31 /* Assets.xcassets in Resources */,
+				458A56BA2908805600340E31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		61E186ABA7398FAF4CFCBEE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Scrolling-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F43CA4FB04543919E3C471FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scrolling/Pods-Scrolling-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Scrolling/Pods-Scrolling-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Scrolling/Pods-Scrolling-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		458DBA8C2904C7D700E6C385 /* Sources */ = {
+		458A56AB2908805600340E31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45936560291323C30085AA73 /* LoginViewController.swift in Sources */,
-				458DBA982904C7D800E6C385 /* ViewController.swift in Sources */,
-				451AC23229133A2900178F9E /* Folder.swift in Sources */,
-				458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */,
-				4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */,
-				45936562291323D90085AA73 /* LibraryViewController.swift in Sources */,
-				458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */,
-				451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */,
-				451AC230291337C300178F9E /* FlashCard.swift in Sources */,
-				4593655C2913239E0085AA73 /* FolderViewController.swift in Sources */,
-				451AC23429133AF000178F9E /* User.swift in Sources */,
+				458A56B72908805600340E31 /* ViewController.swift in Sources */,
+				458A56B32908805600340E31 /* AppDelegate.swift in Sources */,
+				458A56B52908805600340E31 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		458DBA992904C7D800E6C385 /* Main.storyboard */ = {
+		458A56B82908805600340E31 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				458DBA9A2904C7D800E6C385 /* Base */,
+				458A56B92908805600340E31 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		458DBA9E2904C7DB00E6C385 /* LaunchScreen.storyboard */ = {
+		458A56BD2908805800340E31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				458DBA9F2904C7DB00E6C385 /* Base */,
+				458A56BE2908805800340E31 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -198,7 +235,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		458DBAA22904C7DB00E6C385 /* Debug */ = {
+		458A56C12908805800340E31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -258,7 +295,7 @@
 			};
 			name = Debug;
 		};
-		458DBAA32904C7DB00E6C385 /* Release */ = {
+		458A56C22908805800340E31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,15 +349,16 @@
 			};
 			name = Release;
 		};
-		458DBAA52904C7DB00E6C385 /* Debug */ = {
+		458A56C42908805800340E31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 678069C83C014C1B3E604708 /* Pods-Scrolling.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Scribbly/Info.plist;
+				INFOPLIST_FILE = Scrolling/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -331,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = IDK.Scribbly;
+				PRODUCT_BUNDLE_IDENTIFIER = IDK.Scrolling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,15 +377,16 @@
 			};
 			name = Debug;
 		};
-		458DBAA62904C7DB00E6C385 /* Release */ = {
+		458A56C52908805800340E31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2542E17C22CBD26AEB1C1124 /* Pods-Scrolling.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Scribbly/Info.plist;
+				INFOPLIST_FILE = Scrolling/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -358,7 +397,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = IDK.Scribbly;
+				PRODUCT_BUNDLE_IDENTIFIER = IDK.Scrolling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -369,25 +408,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		458DBA8B2904C7D700E6C385 /* Build configuration list for PBXProject "Scribbly" */ = {
+		458A56AA2908805600340E31 /* Build configuration list for PBXProject "Scrolling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				458DBAA22904C7DB00E6C385 /* Debug */,
-				458DBAA32904C7DB00E6C385 /* Release */,
+				458A56C12908805800340E31 /* Debug */,
+				458A56C22908805800340E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		458DBAA42904C7DB00E6C385 /* Build configuration list for PBXNativeTarget "Scribbly" */ = {
+		458A56C32908805800340E31 /* Build configuration list for PBXNativeTarget "Scrolling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				458DBAA52904C7DB00E6C385 /* Debug */,
-				458DBAA62904C7DB00E6C385 /* Release */,
+				458A56C42908805800340E31 /* Debug */,
+				458A56C52908805800340E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 458DBA882904C7D700E6C385 /* Project object */;
+	rootObject = 458A56A72908805600340E31 /* Project object */;
 }
