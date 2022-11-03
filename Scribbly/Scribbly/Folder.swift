@@ -12,6 +12,7 @@ class Folder{
     var CardList:[FlashCard] = []
     var name:String!
     //var owner:String!
+    var progres:Int = 0
     
     init(name:String){
         self.name = name
