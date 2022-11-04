@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OWE-ob-O7z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IUa-NV-Cn1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -148,6 +148,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GI-F5-Sux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1664" y="238"/>
+        </scene>
+        <!--Display View Controller-->
+        <scene sceneID="7uc-fL-HK5">
+            <objects>
+                <viewController storyboardIdentifier="display" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IUa-NV-Cn1" customClass="DisplayViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P8d-VO-3Vp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-nn-cJg" userLabel="CardPageView">
+                                <rect key="frame" x="20" y="125" width="374" height="636"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ryq-Lr-JaZ"/>
+                        <color key="backgroundColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="iuF-nn-cJg" firstAttribute="top" secondItem="Ryq-Lr-JaZ" secondAttribute="top" constant="81" id="AnU-Hj-amG"/>
+                            <constraint firstItem="Ryq-Lr-JaZ" firstAttribute="trailing" secondItem="iuF-nn-cJg" secondAttribute="trailing" constant="20" id="TxD-KB-trQ"/>
+                            <constraint firstItem="Ryq-Lr-JaZ" firstAttribute="bottom" secondItem="iuF-nn-cJg" secondAttribute="bottom" constant="101" id="qLw-4I-hJM"/>
+                            <constraint firstItem="iuF-nn-cJg" firstAttribute="leading" secondItem="Ryq-Lr-JaZ" secondAttribute="leading" constant="20" id="uWZ-Rf-LZf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CardPageView" destination="iuF-nn-cJg" id="ue9-yS-9HT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Et-N5-5E1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2856.521739130435" y="213.61607142857142"/>
+        </scene>
+        <!--My Page View Controller-->
+        <scene sceneID="Mi6-wE-2WO">
+            <objects>
+                <pageViewController storyboardIdentifier="page" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="partialCurl" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="vertical" spineLocation="none" id="wRM-ro-6F2" customClass="MyPageViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFg-GX-FS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3619" y="214"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="wBn-9N-i1K">
+            <objects>
+                <viewController storyboardIdentifier="data" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wm1-5L-J7I" customClass="DataViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ue-go-pDY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-Ib-0SF">
+                                <rect key="frame" x="157" y="486" width="100" height="31"/>
+                                <color key="backgroundColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="FJI-vu-55q"/>
+                                    <constraint firstAttribute="height" constant="31" id="TTc-jT-BrT"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Flip"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="wm1-5L-J7I" eventType="touchUpInside" id="OkU-TS-bNG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-GV-Veb">
+                                <rect key="frame" x="132" y="442.5" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4dE-iP-7fh"/>
+                                    <constraint firstAttribute="height" constant="21" id="5Y6-FE-blR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-ue-YG7">
+                                <rect key="frame" x="147" y="442.5" width="120" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="G0J-cM-Jph"/>
+                                    <constraint firstAttribute="width" constant="120" id="XCr-Mr-mdA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tkm-D6-KRk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y4k-GV-Veb" firstAttribute="centerX" secondItem="tkm-D6-KRk" secondAttribute="centerX" id="9Yh-yO-pt4"/>
+                            <constraint firstItem="hwy-Ib-0SF" firstAttribute="top" secondItem="JXH-ue-YG7" secondAttribute="bottom" constant="22.5" id="J3Z-XV-WmX"/>
+                            <constraint firstItem="Y4k-GV-Veb" firstAttribute="centerY" secondItem="tkm-D6-KRk" secondAttribute="centerY" id="VUq-t0-MSu"/>
+                            <constraint firstItem="hwy-Ib-0SF" firstAttribute="centerX" secondItem="tkm-D6-KRk" secondAttribute="centerX" id="ZoH-M3-ewy"/>
+                            <constraint firstItem="JXH-ue-YG7" firstAttribute="centerY" secondItem="tkm-D6-KRk" secondAttribute="centerY" id="dDi-Jc-v23"/>
+                            <constraint firstItem="JXH-ue-YG7" firstAttribute="centerX" secondItem="tkm-D6-KRk" secondAttribute="centerX" id="dJu-ne-EGx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backLabel" destination="Y4k-GV-Veb" id="i8x-CI-3jN"/>
+                        <outlet property="frontLabel" destination="JXH-ue-YG7" id="fe2-kP-Tbc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4NA-t4-g5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4373.913043478261" y="213.61607142857142"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="8I6-iR-5s1">
