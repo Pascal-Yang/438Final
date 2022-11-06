@@ -17,6 +17,7 @@ class User{
         self.name = name
         self.password = password
     }
+
     
 }
 
