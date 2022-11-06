@@ -80,8 +80,10 @@ class DisplayViewController: UIViewController {
        
         addChild(pageView)
         pageView.didMove(toParent: self)
-        
+        //pageView.view.layer.cornerRadius = 50
+        pageView.view.clipsToBounds = false
         CardPageView.addSubview(pageView.view)
+        CardPageView.layer.cornerRadius = 50
         
         pageView.view.frame = CardPageView.bounds
         

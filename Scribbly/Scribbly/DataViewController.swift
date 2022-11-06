@@ -33,11 +33,11 @@ class DataViewController: UIViewController {
         if rear{
             frontLabel.isHidden = true
             backLabel.isHidden = false
-            self.view.backgroundColor = .yellow
+            self.view.backgroundColor = MyColor.blue1
         }else{
             frontLabel.isHidden = false
             backLabel.isHidden = true
-            self.view.backgroundColor = .white
+            self.view.backgroundColor = MyColor.green3
         }
     }
     

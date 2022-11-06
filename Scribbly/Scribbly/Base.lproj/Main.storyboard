@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dAY-E6-qRL">
-
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IUa-NV-Cn1">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -24,10 +22,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="y4U-Q9-HBz" userLabel="folderCell" customClass="LibraryTableViewCell" customModule="Scribbly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="80"/>
-                                        
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y4U-Q9-HBz" id="904-ZD-wMz">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
@@ -87,9 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="2573.913043478261" y="-595.3125"/>
-
         </scene>
         <!--Folder View Controller-->
         <scene sceneID="3Wg-YX-7sn">
@@ -214,7 +208,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ryq-Lr-JaZ"/>
-                        <color key="backgroundColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="dark blue"/>
                         <constraints>
                             <constraint firstItem="iuF-nn-cJg" firstAttribute="top" secondItem="Ryq-Lr-JaZ" secondAttribute="top" constant="81" id="AnU-Hj-amG"/>
                             <constraint firstItem="Ryq-Lr-JaZ" firstAttribute="trailing" secondItem="iuF-nn-cJg" secondAttribute="trailing" constant="20" id="TxD-KB-trQ"/>
@@ -228,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Et-N5-5E1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2856.521739130435" y="213.61607142857142"/>
+            <point key="canvasLocation" x="3837" y="436"/>
         </scene>
         <!--My Page View Controller-->
         <scene sceneID="Mi6-wE-2WO">
@@ -236,7 +230,7 @@
                 <pageViewController storyboardIdentifier="page" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="partialCurl" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="vertical" spineLocation="none" id="wRM-ro-6F2" customClass="MyPageViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFg-GX-FS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3619" y="214"/>
+            <point key="canvasLocation" x="4795" y="436"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="wBn-9N-i1K">
@@ -248,41 +242,42 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-Ib-0SF">
                                 <rect key="frame" x="145" y="549.66666666666663" width="100" height="31"/>
-                                <color key="backgroundColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="FJI-vu-55q"/>
                                     <constraint firstAttribute="height" constant="31" id="TTc-jT-BrT"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Flip"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FLIP">
+                                    <color key="baseForegroundColor" name="dark blue"/>
+                                    <color key="baseBackgroundColor" name="grey"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonClicked:" destination="wm1-5L-J7I" eventType="touchUpInside" id="OkU-TS-bNG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-GV-Veb">
-                                <rect key="frame" x="120" y="416.66666666666669" width="150" height="21"/>
+                                <rect key="frame" x="95" y="416.66666666666669" width="200" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="4dE-iP-7fh"/>
+                                    <constraint firstAttribute="width" constant="200" id="4dE-iP-7fh"/>
                                     <constraint firstAttribute="height" constant="21" id="5Y6-FE-blR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Label" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-ue-YG7">
-                                <rect key="frame" x="135" y="327" width="120" height="200"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-ue-YG7">
+                                <rect key="frame" x="95" y="327" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="G0J-cM-Jph"/>
-                                    <constraint firstAttribute="width" constant="120" id="XCr-Mr-mdA"/>
+                                    <constraint firstAttribute="width" constant="200" id="XCr-Mr-mdA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="green1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tkm-D6-KRk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="green3"/>
                         <constraints>
                             <constraint firstItem="Y4k-GV-Veb" firstAttribute="centerX" secondItem="tkm-D6-KRk" secondAttribute="centerX" id="9Yh-yO-pt4"/>
                             <constraint firstItem="hwy-Ib-0SF" firstAttribute="top" secondItem="JXH-ue-YG7" secondAttribute="bottom" constant="22.5" id="J3Z-XV-WmX"/>
@@ -299,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NA-t4-g5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4373.913043478261" y="213.61607142857142"/>
+            <point key="canvasLocation" x="5697" y="436"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="8I6-iR-5s1">
@@ -668,6 +663,9 @@
         <namedColor name="green3">
             <color red="0.40784313725490196" green="0.76470588235294112" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="grey">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -677,13 +675,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
