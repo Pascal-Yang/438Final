@@ -8,6 +8,7 @@
 import UIKit
 
 class DisplayViewController: UIViewController {
+    
 
     @IBOutlet weak var CardPageView: UIView!
     
@@ -15,22 +16,60 @@ class DisplayViewController: UIViewController {
     
     var data:[FlashCard] = []
     
+    var courseKey:String = "ECON 1011: Micro Econ"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        // get fake cards
+        var tempCards:[FlashCard] = []
         for i in 1...5{
-            data.append(FlashCard(frontTxt: "Ques \(i)", backTxt: "Ans \(i)", id: i))
+            tempCards.append(FlashCard(frontTxt: courseKey + "Question \(i)", backTxt: "Answer \(i)", id: i))
+        }
+        // create a fake folder
+        var v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+        
+        do {
+            let encoder = JSONEncoder()
+            let toInsert = try encoder.encode(v1)
+            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
+        } catch {
+            print("Unable to Encode Array of Folders (\(error))")
         }
         
-        configPageView()
-
-        // Do any additional setup after loading the view.
+        data = fetchAllCards()
+        
+        if data.count < 1{
+            
+        }else{
+            configPageView()
+        }
+        
+    }
+    
+    func fetchAllCards()->[FlashCard]{
+        
+        if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
+            
+            do {
+                let decoder = JSONDecoder()
+                let folder:Folder = try decoder.decode(Folder.self, from: fetchdata)
+                let cards = folder.CardList
+                return cards
+            } catch {
+                print("Unable to Decode Folder")
+            }
+            
+        }
+        
+        let message = UIAlertController(title: "Error", message: "The course key is not in userDefault", preferredStyle: .alert)
+        message.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(message, animated: true, completion: nil)
+        return []
     }
     
     func configPageView(){
-        
-       
         
         // create a pageView instance and add to the CardPage View
         guard let pageView = storyboard?.instantiateViewController(withIdentifier: "page") as? MyPageViewController else{
