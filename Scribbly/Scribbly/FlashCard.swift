@@ -7,18 +7,22 @@
 
 import Foundation
 
-class FlashCard{
+struct FlashCard: Codable{
     
     /*TODO
      1. add var for the canvas view
      2. look for static id increment
      */
     
-    var FrontText:String!
+    var FrontText:String = "default front text"
+    var BackText:String = "default back text"
     var id:Int!
     
-    init(FrontText:String){
-        
+    init(frontTxt:String, backTxt:String, id:Int){
+        FrontText = frontTxt
+        BackText = backTxt
+        self.id = id
     }
     
 }
+
