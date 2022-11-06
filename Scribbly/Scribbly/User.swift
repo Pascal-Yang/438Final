@@ -17,6 +17,6 @@ class User{
         self.name = name
         self.password = password
     }
-    //hello from kristen
+
     
 }
