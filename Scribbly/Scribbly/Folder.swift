@@ -27,3 +27,10 @@ struct Folder: Codable {
     var progress:Double = 0
 }
 
+struct FolderInfo: Codable {
+    var name:String = "name"
+    var owner:String = "someone"
+    var progress:Double = 0
+}
+
+

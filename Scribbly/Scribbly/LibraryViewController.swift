@@ -9,12 +9,12 @@ import UIKit
 
 struct Section {
     let letter : String
-    let savedFolders : [Folder]
+    let savedFolders : [FolderInfo]
 }
 
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
-    var folders = [Folder]()
+    var folders = [FolderInfo]()
     var sections = [Section]()
     
     override func viewDidLoad() {
@@ -27,23 +27,23 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // make up test values and add to userDefault
         // TODO: TO-BE-REMOVED, replace storage method with database
-        let v1 = Folder(name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
-        let v2 = Folder(name: "PSYCH 360: Cognitive Psych", progress: Double.random(in: 0.2 ..< 0.8))
-        let v3 = Folder(name: "CSE 438: Mobile App", progress: Double.random(in: 0.2 ..< 0.8))
-        let v4 = Folder(name: "MATH 309: Matrix Algebra", progress: Double.random(in: 0.2 ..< 0.8))
-        let v5 = Folder(name: "ENGR 310: Tech Writing", progress: Double.random(in: 0.2 ..< 0.8))
-        let v6 = Folder(name: "ANTHRO 100: Intro to Human Evo", progress: Double.random(in: 0.2 ..< 0.8))
-        let v7 = Folder(name: "PSYCH 100: Intro to Psych", progress: Double.random(in: 0.2 ..< 0.8))
-        let v8 = Folder(name: "CSE 417: Machine Learning", progress: Double.random(in: 0.2 ..< 0.8))
+        let v1 = FolderInfo(name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+        let v2 = FolderInfo(name: "PSYCH 360: Cognitive Psych", progress: Double.random(in: 0.2 ..< 0.8))
+        let v3 = FolderInfo(name: "CSE 438: Mobile App", progress: Double.random(in: 0.2 ..< 0.8))
+        let v4 = FolderInfo(name: "MATH 309: Matrix Algebra", progress: Double.random(in: 0.2 ..< 0.8))
+        let v5 = FolderInfo(name: "ENGR 310: Tech Writing", progress: Double.random(in: 0.2 ..< 0.8))
+        let v6 = FolderInfo(name: "ANTHRO 100: Intro to Human Evo", progress: Double.random(in: 0.2 ..< 0.8))
+        let v7 = FolderInfo(name: "PSYCH 100: Intro to Psych", progress: Double.random(in: 0.2 ..< 0.8))
+        let v8 = FolderInfo(name: "CSE 417: Machine Learning", progress: Double.random(in: 0.2 ..< 0.8))
 
-        let testVal:[Folder] = [v1, v2, v3, v4, v5, v6, v7, v8]
+        let testVal:[FolderInfo] = [v1, v2, v3, v4, v5, v6, v7, v8]
 
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(testVal)
             UserDefaults.standard.set(data, forKey: "folders")
         } catch {
-            print("Unable to Encode Array of Folders (\(error))")
+            print("Unable to Encode Array of FolderInfos (\(error))")
         }
     
         
@@ -51,9 +51,9 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         if let data = UserDefaults.standard.data(forKey: "folders") {
             do {
                 let decoder = JSONDecoder()
-                folders = try decoder.decode([Folder].self, from: data)
+                folders = try decoder.decode([FolderInfo].self, from: data)
             } catch {
-                print("Unable to Decode Folder (\(error))")
+                print("Unable to Decode FolderInfo (\(error))")
             }
         }
         sortSections()
@@ -61,6 +61,12 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        let folder = section.savedFolders[indexPath.row] as FolderInfo
+        print(String(folder.name))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +82,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryTableViewCell
             
         let section = sections[indexPath.section]
-        let folder = section.savedFolders[indexPath.row] as Folder
+        let folder = section.savedFolders[indexPath.row] as FolderInfo
         print(String(folder.name))
         cell.folderName.text = folder.name
         cell.progressBar.animateValue(to: folder.progress)
@@ -111,7 +117,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
                 let data = try encoder.encode(folders)
                 UserDefaults.standard.set(data, forKey: "folders")
             } catch {
-                print("Unable to Encode Array of Folders (\(error))")
+                print("Unable to Encode Array of FolderInfos (\(error))")
             }
             sortSections()
         }
@@ -130,14 +136,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func addFolder(_ sender: Any) {
         do {
-            let new = Folder(name: "New Folder", progress: Double.random(in: 0.2 ..< 0.8))
+            let new = FolderInfo(name: "New FolderInfo", progress: Double.random(in: 0.2 ..< 0.8))
             folders.append(new)
             print("new folders: ", folders)
             let encoder = JSONEncoder()
             let data = try encoder.encode(folders)
             UserDefaults.standard.set(data, forKey: "folders")
         } catch {
-            print("Unable to Encode Array of Folders (\(error))")
+            print("Unable to Encode Array of FolderInfos (\(error))")
         }
         sortSections()
     }
