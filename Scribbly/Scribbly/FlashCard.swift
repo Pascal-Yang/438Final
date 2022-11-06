@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FlashCard{
+struct FlashCard: Codable{
     
     /*TODO
      1. add var for the canvas view
