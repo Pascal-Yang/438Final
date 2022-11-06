@@ -64,7 +64,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Scribbly" id="P0b-ZF-QjE">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uaY-1C-cZ2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pyt-nf-D5c" userLabel="Add">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pyt-nf-D5c" userLabel="Add">
                                 <rect key="frame" x="288" y="6.6666666666666679" width="86" height="31.000000000000004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -190,11 +190,11 @@
             <objects>
                 <viewController storyboardIdentifier="display" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IUa-NV-Cn1" customClass="DisplayViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P8d-VO-3Vp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-nn-cJg" userLabel="CardPageView">
-                                <rect key="frame" x="20" y="125" width="374" height="636"/>
+                                <rect key="frame" x="20" y="125" width="350" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -233,11 +233,11 @@
             <objects>
                 <viewController storyboardIdentifier="data" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wm1-5L-J7I" customClass="DataViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ue-go-pDY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-Ib-0SF">
-                                <rect key="frame" x="157" y="575.5" width="100" height="31"/>
+                                <rect key="frame" x="145" y="549.66666666666663" width="100" height="31"/>
                                 <color key="backgroundColor" red="1" green="0.77030967750000001" blue="0.56849720699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="FJI-vu-55q"/>
@@ -251,7 +251,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-GV-Veb">
-                                <rect key="frame" x="132" y="442.5" width="150" height="21"/>
+                                <rect key="frame" x="120" y="416.66666666666669" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="4dE-iP-7fh"/>
                                     <constraint firstAttribute="height" constant="21" id="5Y6-FE-blR"/>
@@ -261,7 +261,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Label" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-ue-YG7">
-                                <rect key="frame" x="147" y="353" width="120" height="200"/>
+                                <rect key="frame" x="135" y="327" width="120" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="G0J-cM-Jph"/>
                                     <constraint firstAttribute="width" constant="120" id="XCr-Mr-mdA"/>
