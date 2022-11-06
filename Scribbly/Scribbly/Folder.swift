@@ -7,15 +7,23 @@
 
 import Foundation
 
-class Folder{
-    
+//class Folder{
+//
+//    var CardList:[FlashCard] = []
+//    var name:String!
+//    //var owner:String!
+//
+//    init(name:String){
+//        self.name = name
+//    }
+//
+//}
+
+struct Folder: Codable {
     var CardList:[FlashCard] = []
-    var name:String!
+    var term:String = "termName"
     //var owner:String!
-    
-    init(name:String){
-        self.name = name
-    }
-    
+    var definition:String = "definition"
+    var progress:Double = 0
 }
 
