@@ -14,6 +14,9 @@
 		451AC230291337C300178F9E /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22F291337C300178F9E /* FlashCard.swift */; };
 		451AC23229133A2900178F9E /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23129133A2900178F9E /* Folder.swift */; };
 		451AC23429133AF000178F9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23329133AF000178F9E /* User.swift */; };
+		457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B67012914AE9500B88F0A /* DisplayViewController.swift */; };
+		457B672829159A8C00B88F0A /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B672729159A8C00B88F0A /* MyPageViewController.swift */; };
+		457B672A29159AA100B88F0A /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B672929159AA100B88F0A /* DataViewController.swift */; };
 		458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA932904C7D800E6C385 /* AppDelegate.swift */; };
 		458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA952904C7D800E6C385 /* SceneDelegate.swift */; };
 		458DBA982904C7D800E6C385 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458DBA972904C7D800E6C385 /* ViewController.swift */; };
@@ -34,6 +37,9 @@
 		451AC22F291337C300178F9E /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
 		451AC23129133A2900178F9E /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		451AC23329133AF000178F9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		457B67012914AE9500B88F0A /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		457B672729159A8C00B88F0A /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		457B672929159AA100B88F0A /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		458DBA902904C7D700E6C385 /* Scribbly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scribbly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		458DBA932904C7D800E6C385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		458DBA952904C7D800E6C385 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 				458DBA952904C7D800E6C385 /* SceneDelegate.swift */,
 				458DBA972904C7D800E6C385 /* ViewController.swift */,
 				458DBA992904C7D800E6C385 /* Main.storyboard */,
+				457B672729159A8C00B88F0A /* MyPageViewController.swift */,
+				457B672929159AA100B88F0A /* DataViewController.swift */,
+				457B67012914AE9500B88F0A /* DisplayViewController.swift */,
 				451AC22D2913260E00178F9E /* CardEditViewController.swift */,
 				4593655B2913239E0085AA73 /* FolderViewController.swift */,
 				4593655D291323B60085AA73 /* ProfileViewController.swift */,
@@ -180,6 +189,9 @@
 				45936562291323D90085AA73 /* LibraryViewController.swift in Sources */,
 				1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */,
 				458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */,
+				457B672829159A8C00B88F0A /* MyPageViewController.swift in Sources */,
+				457B672A29159AA100B88F0A /* DataViewController.swift in Sources */,
+				457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */,
 				451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */,
 				451AC230291337C300178F9E /* FlashCard.swift in Sources */,
 				4593655C2913239E0085AA73 /* FolderViewController.swift in Sources */,
