@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q2C-LO-13J">
-
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q2C-LO-13J">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -187,7 +185,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Add New" id="xp2-02-taw">
                             <connections>
                                 <action selector="AddNewTapped:" destination="PCu-de-LLa" id="5qq-k8-sjt"/>
-                                <segue destination="tFz-6o-971" kind="show" identifier="pushAddNew" id="g9L-0L-bp1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -208,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Add New!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsH-xR-1Ua">
-                                <rect key="frame" x="32" y="82" width="101.66666666666669" height="28.666666666666671"/>
+                                <rect key="frame" x="32" y="35" width="101.66666666666669" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -412,9 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Et-N5-5E1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="3836.9230769230767" y="435.78199052132697"/>
-
         </scene>
         <!--My Page View Controller-->
         <scene sceneID="Mi6-wE-2WO">

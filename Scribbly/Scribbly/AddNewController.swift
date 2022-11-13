@@ -12,7 +12,10 @@ class AddNewController: UIViewController{
     
     var CardList:[FlashCard] = []
     
+    var courseKey:String = ""
+    
     override func viewDidLoad() {
+        print("addNewController loaded with courseKey=\(courseKey)")
         super.viewDidLoad()
     }
     
@@ -43,7 +46,7 @@ class AddNewController: UIViewController{
     
     func fetchAllCards()->[FlashCard]{
         
-        if let fetchdata = UserDefaults.standard.data(forKey: "ECON 1011: Micro Econ") {
+        if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
             
             do {
                 let decoder = JSONDecoder()
@@ -62,11 +65,23 @@ class AddNewController: UIViewController{
     }
     
     func saveCards(){
-        var Folder1 = Folder(CardList: CardList, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+        
+        
+        var Folder1 = Folder(CardList: CardList, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
+        
+        //update progress
+        var count = 0.0
+        for card in CardList{
+            if card.learned{
+                count += 1
+            }
+        }
+        Folder1.progress = count / Double(Folder1.CardList.count)
+        
         do {
             let encoder = JSONEncoder()
             let toInsert = try encoder.encode(Folder1)
-            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
+            UserDefaults.standard.set(toInsert, forKey: courseKey)
         } catch {
             print("Unable to Encode Array of Folders (\(error))")
         }

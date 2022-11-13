@@ -16,6 +16,8 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("Couldn't find view controller")
             return
         }
+        print("going to addNew with key=\(courseKey)")
+        addNewViewController.courseKey = self.courseKey
         navigationController?.pushViewController(addNewViewController, animated: true)
     }
     
@@ -25,11 +27,12 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("Couldn't find view controller")
             return
         }
+        print("going to displayView with key=\(courseKey)")
         displayViewController.courseKey = courseKey
         navigationController?.pushViewController(displayViewController, animated: true)
     }
     
-    let courseKey: String = "ECON 1011: Micro Econ"
+    var courseKey:String = "ECON 1011: Micro Econ"
     var data:[FlashCard] = []
     
     override func viewDidLoad() {
@@ -41,20 +44,20 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var tempCardList:[FlashCard] = []
         
         // test values
-        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", id: 1)
+        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", id: 1, learned: false)
         
-        let t2 = FlashCard(frontTxt: "microeconomics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.",id: 2)
-        let t3 = FlashCard(frontTxt: "labor force",backTxt: " the sum of employed and unemployed persons",id:3)
+        let t2 = FlashCard(frontTxt: "microeconomics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.",id: 2, learned: false)
+        let t3 = FlashCard(frontTxt: "labor force",backTxt: " the sum of employed and unemployed persons",id:3, learned: false)
         
         tempCardList = [t1,t2,t3]
         
-        var Folder1 = Folder(CardList: tempCardList, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+        var Folder1 = Folder(CardList: tempCardList, name: courseKey, progress: 0)
         
 
         do {
             let encoder = JSONEncoder()
             let toInsert = try encoder.encode(Folder1)
-            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
+            UserDefaults.standard.set(toInsert, forKey: courseKey)
         } catch {
             print("Unable to Encode Array of Folders (\(error))")
         }
@@ -66,7 +69,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func fetchAllCards()->[FlashCard]{
         
-        if let fetchdata = UserDefaults.standard.data(forKey: "ECON 1011: Micro Econ") {
+        if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
             
             do {
                 let decoder = JSONDecoder()

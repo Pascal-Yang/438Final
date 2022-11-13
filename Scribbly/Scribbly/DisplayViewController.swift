@@ -22,7 +22,7 @@ class DisplayViewController: UIViewController {
     
     var data:[FlashCard] = []
     
-    var courseKey:String = "ECON 1011: Micro Econ"
+    var courseKey:String = "xxx"
     
     var ratio:Double = 0 {
         didSet{
@@ -38,26 +38,26 @@ class DisplayViewController: UIViewController {
         progressBar.backgroundColor = MyColor.grey
         
         // get fake cards
-        var tempCards:[FlashCard] = []
-        for i in 1...5{
-            tempCards.append(FlashCard(frontTxt: courseKey + "Question \(i)",
-                                       backTxt: "Answer \(i)",
-                                       id: i,
-                                       learned: (i%2==0))
-            )
-            
-        }
-        
-        // create a fake folder
-        let v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
-        
-        do {
-            let encoder = JSONEncoder()
-            let toInsert = try encoder.encode(v1)
-            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
-        } catch {
-            print("Unable to Encode Array of Folders (\(error))")
-        }
+//        var tempCards:[FlashCard] = []
+//        for i in 1...5{
+//            tempCards.append(FlashCard(frontTxt: courseKey + "Question \(i)",
+//                                       backTxt: "Answer \(i)",
+//                                       id: i,
+//                                       learned: (i%2==0))
+//            )
+//
+//        }
+//
+//        // create a fake folder
+//        let v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+//
+//        do {
+//            let encoder = JSONEncoder()
+//            let toInsert = try encoder.encode(v1)
+//            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
+//        } catch {
+//            print("Unable to Encode Array of Folders (\(error))")
+//        }
         
         data = fetchAllCards()
         
