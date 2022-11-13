@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q2C-LO-13J">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dAY-E6-qRL">
+
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -59,6 +61,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1K-WP-OvL">
+                                <rect key="frame" x="0.0" y="760" width="390" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.09525511414" green="0.12720587850000001" blue="0.22304895520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,18 +341,32 @@
                                 <rect key="frame" x="135" y="154" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEB-bn-MT3">
+                                <rect key="frame" x="0.0" y="760" width="390" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VDi-Y3-BTT"/>
                         <color key="backgroundColor" name="dark blue"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="ObT-EG-fNW"/>
+                    <navigationItem key="navigationItem" title="Profile" id="ObT-EG-fNW">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-logout-rounded-32" style="plain" id="3V5-mg-07w">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pgl-Ud-FHA">
+                                <rect key="frame" x="288" y="0.0" width="86" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icons8-logout-rounded-32"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="username_display" destination="DQ3-ce-xyU" id="dDK-ij-vkY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GI-F5-Sux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="436"/>
+            <point key="canvasLocation" x="2573.8461538461538" y="435.78199052132697"/>
         </scene>
         <!--Display View Controller-->
         <scene sceneID="7uc-fL-HK5">
@@ -511,7 +532,7 @@
                                         <rect key="frame" x="26" y="291" width="247" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Login">
+                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
                                             <color key="baseForegroundColor" name="blue1"/>
                                             <color key="baseBackgroundColor" name="green1"/>
                                         </buttonConfiguration>
@@ -654,7 +675,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="9Fi-gw-6bd">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OWE-ob-O7z" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar_controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OWE-ob-O7z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8RW-r1-bf0">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -674,11 +695,15 @@
         <scene sceneID="V98-E4-Pgf">
             <objects>
                 <navigationController title="Library" automaticallyAdjustsScrollViewInsets="NO" id="qu0-Ur-pgb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Krl-tT-Gf7"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-book-stack-32" id="Krl-tT-Gf7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L65-Bv-4x2">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="green2"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="green1"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -689,15 +714,18 @@
             </objects>
             <point key="canvasLocation" x="1789.8550724637682" y="-595.3125"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="u8d-uo-PgM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TmH-UC-Oom" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4Dm-bC-KTp"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-male-user-32" id="4Dm-bC-KTp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bO8-zp-e0K">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="green1"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -734,6 +762,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dg1-II-XTr">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="green2"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -770,7 +799,7 @@
                                 <rect key="frame" x="40" y="748" width="311" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Up">
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Up" cornerStyle="capsule">
                                     <color key="baseBackgroundColor" name="green3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -781,7 +810,7 @@
                                 <rect key="frame" x="40" y="687" width="311" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
                                     <color key="baseBackgroundColor" name="green3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -793,6 +822,10 @@
                         <color key="backgroundColor" name="dark blue"/>
                     </view>
                     <navigationItem key="navigationItem" id="IjV-4s-n92"/>
+                    <connections>
+                        <outlet property="login_button" destination="atr-wZ-Pff" id="lCA-8t-Bjs"/>
+                        <outlet property="signup_button" destination="R6S-fb-SPs" id="yrt-iL-tlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeK-XM-lns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,6 +870,9 @@
     </scenes>
     <resources>
         <image name="default_profile" width="384" height="384"/>
+        <image name="icons8-book-stack-32" width="32" height="32"/>
+        <image name="icons8-logout-rounded-32" width="32" height="32"/>
+        <image name="icons8-male-user-32" width="32" height="32"/>
         <namedColor name="blue1">
             <color red="0.17254901960784313" green="0.22352941176470589" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -845,6 +881,9 @@
         </namedColor>
         <namedColor name="green1">
             <color red="0.85490196078431369" green="0.99607843137254903" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="green2">
+            <color red="0.59607843137254901" green="1" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="green3">
             <color red="0.40784313725490196" green="0.76470588235294112" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
