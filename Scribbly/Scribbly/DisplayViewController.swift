@@ -28,7 +28,7 @@ class DisplayViewController: UIViewController {
             tempCards.append(FlashCard(frontTxt: courseKey + "Question \(i)", backTxt: "Answer \(i)", id: i))
         }
         // create a fake folder
-        var v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
+        let v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
         
         do {
             let encoder = JSONEncoder()
@@ -49,6 +49,8 @@ class DisplayViewController: UIViewController {
     }
     
     func fetchAllCards()->[FlashCard]{
+        
+        print("fetching key: \(courseKey)")
         
         if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
             
