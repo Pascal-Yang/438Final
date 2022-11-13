@@ -10,6 +10,10 @@ import UIKit
 
 class StartUpViewController: UIViewController {
     
+    @IBOutlet weak var signup_button: UIButton!
+    @IBOutlet weak var login_button: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
