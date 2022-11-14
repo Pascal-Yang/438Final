@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ezpopup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/huynguyencong/EzPopup.git",
+      "state" : {
+        "revision" : "a8429ff1372cdaa5ba6f2e9daf756b6b489542d0",
+        "version" : "1.2.4"
+      }
+    }
+  ],
+  "version" : 2
+}

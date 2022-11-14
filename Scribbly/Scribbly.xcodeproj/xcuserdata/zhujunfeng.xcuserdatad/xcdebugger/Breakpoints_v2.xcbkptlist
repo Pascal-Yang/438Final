@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "682513DA-D3DB-4BDD-9C1E-C8E4049BF66B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Scribbly/FolderViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "FolderViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - c71a5665555b3587"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.tableView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - c47be6ebf014d98b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.tableView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - e2ad18dd391390ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.tableView.modify : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - d3033bf523767c21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.tableView.modify : Swift.Optional&lt;__C.UITableView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - 432bd79e233617df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Scribbly.FolderViewController"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "28CF6C1B-6E95-4F2B-A4DF-F52C70112CC0 - a2362e7e98c4931b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scribbly.FolderViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Scribbly.FolderViewController&gt;"
+                  moduleName = "Scribbly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhujunfeng/Desktop/newScribbly/438Final/Scribbly/Scribbly/FolderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

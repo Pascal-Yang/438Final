@@ -107,7 +107,17 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: do something
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let folderVC = mainStoryboard.instantiateViewController(withIdentifier: "FolderView") as? FolderViewController else{
+            print("Couldn't find view controller")
+            return
+        }
+        let section = sections[indexPath.section]
+        let folder = section.savedFolders[indexPath.row] as FolderInfo
+        print(String(folder.name))
+        print("going to folderView with folder name=\(folder.name)")
+        folderVC.courseKey = folder.name
+        navigationController?.pushViewController(folderVC, animated: true)
         return
     }
     
