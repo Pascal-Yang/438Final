@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dAY-E6-qRL">
-
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -184,16 +182,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hVW-AQ-yAq">
-                        <barButtonItem key="leftBarButtonItem" title="Start Learning" id="WiB-Ck-h82">
-                            <connections>
-                                <action selector="StartLearningTapped:" destination="PCu-de-LLa" id="bOP-Qd-1mq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add New" id="xp2-02-taw">
-                            <connections>
-                                <action selector="AddNewTapped:" destination="PCu-de-LLa" id="5qq-k8-sjt"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add New" id="xp2-02-taw">
+                                <connections>
+                                    <action selector="AddNewTapped:" destination="PCu-de-LLa" id="5qq-k8-sjt"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Learn" id="WiB-Ck-h82">
+                                <connections>
+                                    <action selector="StartLearningTapped:" destination="PCu-de-LLa" id="bOP-Qd-1mq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pMr-Sz-CLi" id="9d5-iV-3JP"/>
