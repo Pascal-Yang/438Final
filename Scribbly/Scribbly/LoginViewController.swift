@@ -72,8 +72,8 @@ class LoginViewController: UIViewController {
 
         if login_success == true{
             
-            let tabVC = storyboard!.instantiateViewController(withIdentifier: "tabbar_controller") as! UITabBarController
-            navigationController?.pushViewController(tabVC, animated: true)
+            let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
+            navigationController?.pushViewController(libVC, animated: true)
         }
     }
     

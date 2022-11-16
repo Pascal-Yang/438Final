@@ -51,7 +51,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tempCardList = [t1,t2,t3]
         
-        var Folder1 = Folder(CardList: tempCardList, name: courseKey, progress: 0)
+        let Folder1 = Folder(CardList: tempCardList, name: courseKey, progress: 0)
         
 
         do {
@@ -65,6 +65,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         data = fetchAllCards()
         
         tableView.reloadData()
+        
     }
 
     func fetchAllCards()->[FlashCard]{

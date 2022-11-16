@@ -37,6 +37,7 @@ class DisplayViewController: UIViewController {
         progressBar.color = MyColor.green3
         progressBar.backgroundColor = MyColor.grey
         
+        
         // get fake cards
 //        var tempCards:[FlashCard] = []
 //        for i in 1...5{
