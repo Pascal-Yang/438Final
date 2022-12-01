@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        username_field.layer.cornerRadius = 40
         login_success = false
         input_username = username_field.text!
         input_password = password_field.text!
@@ -52,8 +53,11 @@ class LoginViewController: UIViewController {
                             print("username & password match")
                             login_success = true
                             //turn to the next view controller
-                            //remember this user
                             
+                            //remember this user
+
+                            UserDefaults.standard.set(input_username, forKey: "StoredUserName")
+   
                         }else{
                             login_success = false
                             alert.text = "* incorrect password"
@@ -67,7 +71,7 @@ class LoginViewController: UIViewController {
             
 
         if login_success == true{
-        
+            
             let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
             navigationController?.pushViewController(libVC, animated: true)
         }

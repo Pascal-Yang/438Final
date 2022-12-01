@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController {
         find_repeat = false
         match_password = true
 //        UserDefaults.standard.set([], forKey: "UserInfo")
+        
 
     }
     

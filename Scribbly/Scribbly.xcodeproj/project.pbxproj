@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9AE7B9291C0B4A00134017 /* EzPopup in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9AE7B8291C0B4A00134017 /* EzPopup */; };
+		1D9AE7BB291C0BFC00134017 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */; };
 		1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */; };
 		1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */; };
 		1DA79FC22917F77700B9B6CC /* ReusableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FC12917F77700B9B6CC /* ReusableValues.swift */; };
@@ -30,9 +32,11 @@
 		723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E52915ACD6004FD675 /* SignUpViewController.swift */; };
 		723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E72915AE92004FD675 /* StartUpViewController.swift */; };
 		DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958929188306005D83B1 /* FolderTableViewCell.swift */; };
+		DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958B292160C5005D83B1 /* AddNewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		1DA79FC12917F77700B9B6CC /* ReusableValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableValues.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		723229E52915ACD6004FD675 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		723229E72915AE92004FD675 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		DA1D958929188306005D83B1 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		DA1D958B292160C5005D83B1 /* AddNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9AE7B9291C0B4A00134017 /* EzPopup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 				457B67012914AE9500B88F0A /* DisplayViewController.swift */,
 				451AC22D2913260E00178F9E /* CardEditViewController.swift */,
 				4593655B2913239E0085AA73 /* FolderViewController.swift */,
+				DA1D958B292160C5005D83B1 /* AddNewController.swift */,
 				4593655D291323B60085AA73 /* ProfileViewController.swift */,
 				4593655F291323C30085AA73 /* LoginViewController.swift */,
 				723229E52915ACD6004FD675 /* SignUpViewController.swift */,
@@ -114,6 +121,7 @@
 				458DBA9E2904C7DB00E6C385 /* LaunchScreen.storyboard */,
 				458DBAA12904C7DB00E6C385 /* Info.plist */,
 				1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */,
+				1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */,
 			);
 			path = Scribbly;
 			sourceTree = "<group>";
@@ -134,6 +142,9 @@
 			dependencies = (
 			);
 			name = Scribbly;
+			packageProductDependencies = (
+				1D9AE7B8291C0B4A00134017 /* EzPopup */,
+			);
 			productName = Scribbly;
 			productReference = 458DBA902904C7D700E6C385 /* Scribbly.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 458DBA872904C7D700E6C385;
+			packageReferences = (
+				1D9AE7B7291C0B4A00134017 /* XCRemoteSwiftPackageReference "EzPopup" */,
+			);
 			productRefGroup = 458DBA912904C7D700E6C385 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +209,7 @@
 				451AC23229133A2900178F9E /* Folder.swift in Sources */,
 				458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */,
 				4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */,
+				DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */,
 				1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */,
 				45936562291323D90085AA73 /* LibraryViewController.swift in Sources */,
 				723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */,
@@ -205,6 +220,7 @@
 				457B672A29159AA100B88F0A /* DataViewController.swift in Sources */,
 				457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */,
 				451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */,
+				1D9AE7BB291C0BFC00134017 /* PopUpViewController.swift in Sources */,
 				451AC230291337C300178F9E /* FlashCard.swift in Sources */,
 				4593655C2913239E0085AA73 /* FolderViewController.swift in Sources */,
 				1DA79FC22917F77700B9B6CC /* ReusableValues.swift in Sources */,
@@ -424,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D9AE7B7291C0B4A00134017 /* XCRemoteSwiftPackageReference "EzPopup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/EzPopup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D9AE7B8291C0B4A00134017 /* EzPopup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9AE7B7291C0B4A00134017 /* XCRemoteSwiftPackageReference "EzPopup" */;
+			productName = EzPopup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 458DBA882904C7D700E6C385 /* Project object */;
 }

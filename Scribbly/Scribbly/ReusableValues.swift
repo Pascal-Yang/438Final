@@ -17,3 +17,22 @@ public enum MyColor {
     static let grey = #colorLiteral(red: 0.8206393123, green: 0.8206391931, blue: 0.8206391931, alpha: 1)
 
 }
+
+public enum Font {
+    static let H1 = UIFont.systemFont(ofSize: 17, weight: .semibold)
+    static let H2 = UIFont.systemFont(ofSize: 16, weight: .medium)
+    static let Body = UIFont.systemFont(ofSize: 14, weight: .medium)
+}
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+}

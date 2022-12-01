@@ -6,16 +6,18 @@
 //
 
 import UIKit
+import EzPopup
 
 struct Section {
     let letter : String
     let savedFolders : [FolderInfo]
 }
 
+var folders = [FolderInfo]()
+var sections = [Section]()
+
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
-    var folders = [FolderInfo]()
-    var sections = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         sortSections()
+        
+
     } 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("here!!!")
+        sortSections()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -90,7 +99,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.backgroundColor = UIColor.clear
         cell.folderName.layer.zPosition = 10
         cell.folderName.textColor = MyColor.darkBlue
-        cell.folderName.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        cell.folderName.font = Font.H2
         let cellBGView = UIView()
         cellBGView.backgroundColor = UIColor.init(white: 0.9, alpha: 0.2)
         cell.selectedBackgroundView = cellBGView
@@ -100,7 +109,17 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: do something
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let folderVC = mainStoryboard.instantiateViewController(withIdentifier: "FolderView") as? FolderViewController else{
+            print("Couldn't find view controller")
+            return
+        }
+        let section = sections[indexPath.section]
+        let folder = section.savedFolders[indexPath.row] as FolderInfo
+        print(String(folder.name))
+        print("going to folderView with folder name=\(folder.name)")
+        folderVC.courseKey = folder.name
+        navigationController?.pushViewController(folderVC, animated: true)
         return
     }
     
@@ -135,16 +154,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func addFolder(_ sender: Any) {
-        do {
-            let new = FolderInfo(name: "New FolderInfo", progress: Double.random(in: 0.2 ..< 0.8))
-            folders.append(new)
-            print("new folders: ", folders)
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(folders)
-            UserDefaults.standard.set(data, forKey: "folders")
-        } catch {
-            print("Unable to Encode Array of FolderInfos (\(error))")
-        }
+        let contentVC = PopUpViewController()
+        let popupVC = PopupViewController(contentController: contentVC, popupWidth: 300, popupHeight: 200)
+        popupVC.backgroundAlpha = 0.3
+        popupVC.backgroundColor = .black
+        popupVC.canTapOutsideToDismiss = true
+        popupVC.cornerRadius = 25
+        popupVC.shadowEnabled = true
+        present(popupVC, animated: true)
         sortSections()
     }
     
