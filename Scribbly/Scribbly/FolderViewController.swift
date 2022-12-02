@@ -132,7 +132,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.term.text = data[indexPath.row].FrontText
             cell.definition.text = data[indexPath.row].BackText
             cell.scribble.image = UIImage(data: data[indexPath.row].photo_data)
-            cell.scribble.layer.cornerRadius = 35
+            
 
             // layout
             cell.container.layer.borderColor = MyColor.green1.cgColor
