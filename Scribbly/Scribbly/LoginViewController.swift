@@ -7,6 +7,8 @@
 
 import UIKit
 
+var curUser:String = ""
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var username_field: UITextField!
@@ -45,6 +47,7 @@ class LoginViewController: UIViewController {
             
             if !username_found{
                 alert.text = "* username not found"
+                return
             }
             else{
                 for pairedItem in tempData{
@@ -55,7 +58,7 @@ class LoginViewController: UIViewController {
                             //turn to the next view controller
                             
                             //remember this user
-
+                            curUser = input_username
                             UserDefaults.standard.set(input_username, forKey: "StoredUserName")
    
                         }else{
@@ -74,6 +77,8 @@ class LoginViewController: UIViewController {
             
             let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
             navigationController?.pushViewController(libVC, animated: true)
+            username_found = false
+
         }
     }
     

@@ -11,6 +11,9 @@ class PopUpViewController: UIViewController {
     
     var input:UITextField?
     
+    var curTable:UITableView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,25 +80,37 @@ class PopUpViewController: UIViewController {
             
             // add folder to array
             do {
-                let new = FolderInfo(name: name, progress: Double.random(in: 0.2 ..< 0.8))
+                if let data = UserDefaults.standard.data(forKey: "folders") {
+                    do {
+                        let decoder = JSONDecoder()
+                        folders = try decoder.decode([FolderInfo].self, from: data)
+                    } catch {
+                        print("Unable to Decode FolderInfo (\(error))")
+                    }
+                }
+                let new = FolderInfo(name: name, owner: curUser, progress: Double.random(in: 0.2 ..< 0.8))
                 folders.append(new)
-                print("new folders: ", folders)
+//                print("new folders: ", folders)
                 let encoder = JSONEncoder()
                 let data = try encoder.encode(folders)
                 UserDefaults.standard.set(data, forKey: "folders")
             } catch {
                 print("Unable to Encode Array of FolderInfos (\(error))")
             }
+
         
-            self.view.isHidden = true
+            self.view.isHidden = false
             self.dismiss(animated: true)
             
-            // TODO: reload parent view
-        }
-    
+            // TODO: reload folder table
 
+            folders = folders.filter{$0.owner == String(curUser)}
+            let sortDictionary = Dictionary(grouping: folders, by: {String($0.name.prefix(1))})
+            let keys = sortDictionary.keys.sorted()
+            sections = keys.map{ Section(letter: $0, savedFolders: (sortDictionary[$0]?.sorted(by: { $0.name < $1.name }))!) }
+            curTable?.reloadData()
+
+        }
     }
-    
-    
 
 }
