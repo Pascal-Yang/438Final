@@ -30,6 +30,7 @@
 		4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655D291323B60085AA73 /* ProfileViewController.swift */; };
 		45936560291323C30085AA73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655F291323C30085AA73 /* LoginViewController.swift */; };
 		45936562291323D90085AA73 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45936561291323D90085AA73 /* LibraryViewController.swift */; };
+		45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */; };
 		723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E52915ACD6004FD675 /* SignUpViewController.swift */; };
 		723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E72915AE92004FD675 /* StartUpViewController.swift */; };
 		DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958929188306005D83B1 /* FolderTableViewCell.swift */; };
@@ -61,6 +62,7 @@
 		4593655D291323B60085AA73 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4593655F291323C30085AA73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45936561291323D90085AA73 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellWithoutImage.swift; sourceTree = "<group>"; };
 		723229E52915ACD6004FD675 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		723229E72915AE92004FD675 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		DA1D958929188306005D83B1 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				458DBA972904C7D800E6C385 /* ViewController.swift */,
 				DA1D958929188306005D83B1 /* FolderTableViewCell.swift */,
 				458DBA992904C7D800E6C385 /* Main.storyboard */,
+				45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */,
 				723229E72915AE92004FD675 /* StartUpViewController.swift */,
 				457B672729159A8C00B88F0A /* MyPageViewController.swift */,
 				457B672929159AA100B88F0A /* DataViewController.swift */,
@@ -220,6 +223,7 @@
 				1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */,
 				458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */,
 				DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */,
+				45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */,
 				457B672829159A8C00B88F0A /* MyPageViewController.swift in Sources */,
 				457B672A29159AA100B88F0A /* DataViewController.swift in Sources */,
 				457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */,
