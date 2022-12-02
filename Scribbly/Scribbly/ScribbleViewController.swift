@@ -62,6 +62,10 @@ class Canvas: UIView{
         setNeedsDisplay()
     }
     
+    func refresh(){
+        setNeedsDisplay()
+    }
+    
     func loadData(){
         
         if let temp = NSArray(contentsOf: url) {
@@ -124,7 +128,12 @@ class Canvas: UIView{
                 else{
                     context.setStrokeColor(color_array[k].cgColor)
                 }
-                context.setLineWidth(self.lineWidth)
+                if(width_array.count == 0){
+                    context.setLineWidth(self.lineWidth)
+                }
+                else{
+                    context.setLineWidth(self.width_array[k])
+                }
                 context.setLineCap(.butt)
                 if i==0{
                     context.move(to: p)
@@ -137,13 +146,8 @@ class Canvas: UIView{
             k = k + 1
         }
                     
-        
-        
-        
-        
     }
      
-        
 }
 
 extension ScribbleViewController: UINavigationControllerDelegate {
@@ -173,7 +177,7 @@ class ScribbleViewController: UIViewController {
     let size_picker : UISlider = {
         let size_picker = UISlider()
         size_picker.minimumValue = 1
-        size_picker.maximumValue = 10
+        size_picker.maximumValue = 15
         return size_picker
     }()
 
@@ -196,18 +200,70 @@ class ScribbleViewController: UIViewController {
         canvas.lineWidth = CGFloat(size_picker.value)
     }
     
+ 
+    @IBAction func clearButton(_ sender: Any) {
+        canvas.color_array = []
+        canvas.width_array = []
+        canvas.lines = []
+        canvas.string_lines = []
+        canvas.refresh()
+    }
+    
+    @IBAction func didBack(_ sender: Any) {
+        if(canvas.lines.count > 0){
+        canvas.color_array.removeLast()
+        canvas.width_array.removeLast()
+        canvas.lines.removeLast()
+        canvas.string_lines.removeLast()
+        canvas.refresh()
+        }
+    }
+   
+    @IBOutlet weak var backBtn: UIButton!
+    
+    @IBOutlet weak var clearBtn: UIButton!
+    
     override func viewDidLoad() {
+        
+        clearBtn.setImage(UIImage(systemName: "trash"), for: .normal)
+        clearBtn.backgroundColor = UIColor.clear
+        backBtn.setImage(UIImage(systemName: "arrow.uturn.left.circle"), for: .normal)
+
+        
         navigationController?.delegate = self
         super.viewDidLoad()
         CanvasView.addSubview(canvas)
-        canvas.frame = CanvasView.frame
-        canvas.backgroundColor = UIColor.gray
+        
         panelView.addSubview(colorWell)
+        
         sliderView.addSubview(size_picker)
         view.backgroundColor = MyColor.darkBlue
         
+        CanvasView.backgroundColor = UIColor.clear
+        panelView.backgroundColor = MyColor.darkBlue
+        sliderView.backgroundColor = MyColor.darkBlue
+        
         colorWell.addTarget(self, action: #selector(colorChanged), for: .valueChanged)
         size_picker.addTarget(self, action: #selector(sizeChanged), for: .valueChanged)
+        
+        CanvasView.layer.borderColor = UIColor(hue: 0.3389, saturation: 1, brightness: 0.69, alpha: 1.0).cgColor /* #00af05 */
+
+        CanvasView.layer.borderWidth = CGFloat(4.0)
+        CanvasView.layer.cornerRadius = CGFloat(20)
+        
+        canvas.frame = CanvasView.frame
+        canvas.backgroundColor = MyColor.darkBlue
+        
+       
+        
+        canvas.center = CGPoint(x: CanvasView.frame.size.width  / 2,
+                                     y: CanvasView.frame.size.height / 2)
+        
+        colorWell.center = CGPoint(x: panelView.frame.size.width  / 2,
+                                     y: panelView.frame.size.height / 2)
+        
+        size_picker.center = CGPoint(x: sliderView.frame.size.width  / 2,
+                                     y: sliderView.frame.size.height / 2)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

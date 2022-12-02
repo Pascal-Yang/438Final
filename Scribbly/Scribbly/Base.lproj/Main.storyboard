@@ -302,20 +302,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-4d-gkO">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="524"/>
+                                <rect key="frame" x="16" y="244" width="358" height="358"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-Ab-hO8">
-                                <rect key="frame" x="55" y="600" width="69" height="56"/>
+                                <rect key="frame" x="32" y="668" width="69" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zup-MF-bRQ">
-                                <rect key="frame" x="157" y="600" width="181" height="56"/>
+                                <rect key="frame" x="109" y="668" width="181" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Your Scribble Here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9Y-aE-VpT">
+                                <rect key="frame" x="56" y="115" width="279" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <color key="textColor" name="green3"/>
+                                <color key="highlightedColor" name="green3"/>
+                                <color key="shadowColor" name="dark blue"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf0-Ve-yvp">
+                                <rect key="frame" x="273" y="196" width="24" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="didBack:" destination="4Bi-9P-bLh" eventType="touchUpInside" id="V8Q-EU-KbP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSe-OF-9AC">
+                                <rect key="frame" x="326" y="190" width="24" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="clearButton:" destination="4Bi-9P-bLh" eventType="touchUpInside" id="gDG-Nq-hlq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qQ2-iz-Gog"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -323,6 +349,8 @@
                     <navigationItem key="navigationItem" id="rlS-Ut-sR0"/>
                     <connections>
                         <outlet property="CanvasView" destination="z2a-4d-gkO" id="oK4-aD-SGT"/>
+                        <outlet property="backBtn" destination="yf0-Ve-yvp" id="jVX-OX-oTt"/>
+                        <outlet property="clearBtn" destination="HSe-OF-9AC" id="kMy-pP-6Xa"/>
                         <outlet property="panelView" destination="BqB-Ab-hO8" id="7lg-yf-2YX"/>
                         <outlet property="sliderView" destination="Zup-MF-bRQ" id="Jr4-oA-TPJ"/>
                     </connections>
