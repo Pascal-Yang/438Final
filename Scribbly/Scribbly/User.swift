@@ -12,6 +12,7 @@ class User{
     let name:String!
     //let id:Int!
     let password:String!
+    let folders:[FolderInfo] = []
     
     init(name:String, password:String){
         self.name = name

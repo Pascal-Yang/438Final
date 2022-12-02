@@ -15,6 +15,7 @@ struct Section {
 
 var folders = [FolderInfo]()
 var sections = [Section]()
+var curTable: UITableView!
 
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
@@ -22,31 +23,37 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logoutBtn = UIBarButtonItem()
+        logoutBtn.tintColor = UIColor.red
+        logoutBtn.title = "Logout"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = logoutBtn
+        
+        
         table.dataSource = self
         table.delegate = self
         let textAttributes = [NSAttributedString.Key.foregroundColor:MyColor.green1]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        // make up test values and add to userDefault
-        // TODO: TO-BE-REMOVED, replace storage method with database
-        let v1 = FolderInfo(name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
-        let v2 = FolderInfo(name: "PSYCH 360: Cognitive Psych", progress: Double.random(in: 0.2 ..< 0.8))
-        let v3 = FolderInfo(name: "CSE 438: Mobile App", progress: Double.random(in: 0.2 ..< 0.8))
-        let v4 = FolderInfo(name: "MATH 309: Matrix Algebra", progress: Double.random(in: 0.2 ..< 0.8))
-        let v5 = FolderInfo(name: "ENGR 310: Tech Writing", progress: Double.random(in: 0.2 ..< 0.8))
-        let v6 = FolderInfo(name: "ANTHRO 100: Intro to Human Evo", progress: Double.random(in: 0.2 ..< 0.8))
-        let v7 = FolderInfo(name: "PSYCH 100: Intro to Psych", progress: Double.random(in: 0.2 ..< 0.8))
-        let v8 = FolderInfo(name: "CSE 417: Machine Learning", progress: Double.random(in: 0.2 ..< 0.8))
 
-        let testVal:[FolderInfo] = [v1, v2, v3, v4, v5, v6, v7, v8]
-
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(testVal)
-            UserDefaults.standard.set(data, forKey: "folders")
-        } catch {
-            print("Unable to Encode Array of FolderInfos (\(error))")
-        }
+            
+        // TODO: make up test values and add to userDefault; TO-BE-REMOVED
+//        let v1 = FolderInfo(name: "ECON 1011: Micro Econ", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v2 = FolderInfo(name: "PSYCH 360: Cognitive Psych", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v3 = FolderInfo(name: "CSE 438: Mobile App", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v4 = FolderInfo(name: "MATH 309: Matrix Algebra", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v5 = FolderInfo(name: "ENGR 310: Tech Writing", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v6 = FolderInfo(name: "ANTHRO 100: Intro to Human Evo", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v7 = FolderInfo(name: "PSYCH 100: Intro to Psych", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//        let v8 = FolderInfo(name: "CSE 417: Machine Learning", owner: "test", progress: Double.random(in: 0.2 ..< 0.8))
+//
+//        let testVal:[FolderInfo] = [v1, v2, v3, v4, v5, v6, v7, v8]
+//
+//        do {
+//            let encoder = JSONEncoder()
+//            let data = try encoder.encode(testVal)
+//            UserDefaults.standard.set(data, forKey: "folders")
+//        } catch {
+//            print("Unable to Encode Array of FolderInfos (\(error))")
+//        }
     
         
         // grab local data from userdefaults.standard
@@ -58,13 +65,11 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("Unable to Decode FolderInfo (\(error))")
             }
         }
+        print("current user: ", curUser)
         sortSections()
-        
-
-    } 
+    }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("here!!!")
         sortSections()
     }
     
@@ -75,7 +80,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let section = sections[indexPath.section]
         let folder = section.savedFolders[indexPath.row] as FolderInfo
-        print(String(folder.name))
+//        print(String(folder.name))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +97,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             
         let section = sections[indexPath.section]
         let folder = section.savedFolders[indexPath.row] as FolderInfo
-        print(String(folder.name))
+//        print(String(folder.name))
         cell.folderName.text = folder.name
         cell.progressBar.animateValue(to: folder.progress)
         cell.progressBar.color = MyColor.green3
@@ -117,7 +122,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         let section = sections[indexPath.section]
         let folder = section.savedFolders[indexPath.row] as FolderInfo
         print(String(folder.name))
-        print("going to folderView with folder name=\(folder.name)")
+        print("going to folderView with folder name = \(folder.name)")
         folderVC.courseKey = folder.name
         navigationController?.pushViewController(folderVC, animated: true)
         return
@@ -130,7 +135,19 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) { // add swipe to delete to each row, reload data if delete performed
             let section = sections[indexPath.section]
-            folders.removeAll(where: {$0.name == section.savedFolders[indexPath.row].name})
+            if let data = UserDefaults.standard.data(forKey: "folders") {
+                do {
+                    let decoder = JSONDecoder()
+                    var allFolders = try decoder.decode([FolderInfo].self, from: data)
+                    print("folders before delete: ", allFolders)
+                    allFolders.removeAll(where: {$0.name == section.savedFolders[indexPath.row].name})
+                    print("folders after delete: ", allFolders)
+                    folders = allFolders
+
+                } catch {
+                    print("Unable to Decode FolderInfo (\(error))")
+                }
+            }
             do {
                 let encoder = JSONEncoder()
                 let data = try encoder.encode(folders)
@@ -138,11 +155,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             } catch {
                 print("Unable to Encode Array of FolderInfos (\(error))")
             }
+            
             sortSections()
+
         }
     }
     
     func sortSections(){
+        folders = folders.filter{$0.owner == String(curUser)}
         let sortDictionary = Dictionary(grouping: folders, by: {String($0.name.prefix(1))})
         let keys = sortDictionary.keys.sorted()
         sections = keys.map{ Section(letter: $0, savedFolders: (sortDictionary[$0]?.sorted(by: { $0.name < $1.name }))!) }
@@ -153,16 +173,24 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         return 90
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
+    }
+    
     @IBAction func addFolder(_ sender: Any) {
         let contentVC = PopUpViewController()
+        contentVC.curTable = table
+        curTable = table
         let popupVC = PopupViewController(contentController: contentVC, popupWidth: 300, popupHeight: 200)
         popupVC.backgroundAlpha = 0.3
         popupVC.backgroundColor = .black
         popupVC.canTapOutsideToDismiss = true
         popupVC.cornerRadius = 25
         popupVC.shadowEnabled = true
-        present(popupVC, animated: true)
+        present(popupVC, animated: true, completion: nil)
         sortSections()
     }
+
     
 }
+

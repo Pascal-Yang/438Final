@@ -87,7 +87,7 @@ class DisplayViewController: UIViewController {
         do {
             let encoder = JSONEncoder()
             let toInsert = try encoder.encode(v1)
-            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
+            UserDefaults.standard.set(toInsert, forKey: courseKey)
         } catch {
             print("Unable to Encode Array of Folders (\(error))")
         }
@@ -175,6 +175,7 @@ class DisplayViewController: UIViewController {
         dataView.questionText = data[index].FrontText
         dataView.answerText = data[index].BackText
         dataView.index = index
+        dataView.scribble_img = UIImage(data: data[index].photo_data)!
         
         //check if learned
         if data[index].learned{

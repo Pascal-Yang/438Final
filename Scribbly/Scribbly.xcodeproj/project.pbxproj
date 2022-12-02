@@ -12,6 +12,7 @@
 		1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */; };
 		1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */; };
 		1DA79FC22917F77700B9B6CC /* ReusableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FC12917F77700B9B6CC /* ReusableValues.swift */; };
+		2D7D748329392B1200597656 /* ScribbleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D748229392B1200597656 /* ScribbleViewController.swift */; };
 		451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22D2913260E00178F9E /* CardEditViewController.swift */; };
 		451AC230291337C300178F9E /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22F291337C300178F9E /* FlashCard.swift */; };
 		451AC23229133A2900178F9E /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23129133A2900178F9E /* Folder.swift */; };
@@ -29,6 +30,7 @@
 		4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655D291323B60085AA73 /* ProfileViewController.swift */; };
 		45936560291323C30085AA73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4593655F291323C30085AA73 /* LoginViewController.swift */; };
 		45936562291323D90085AA73 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45936561291323D90085AA73 /* LibraryViewController.swift */; };
+		45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */; };
 		723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E52915ACD6004FD675 /* SignUpViewController.swift */; };
 		723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E72915AE92004FD675 /* StartUpViewController.swift */; };
 		DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958929188306005D83B1 /* FolderTableViewCell.swift */; };
@@ -40,6 +42,7 @@
 		1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		1DA79FC12917F77700B9B6CC /* ReusableValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableValues.swift; sourceTree = "<group>"; };
+		2D7D748229392B1200597656 /* ScribbleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScribbleViewController.swift; sourceTree = "<group>"; };
 		451AC22D2913260E00178F9E /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
 		451AC22F291337C300178F9E /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
 		451AC23129133A2900178F9E /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		4593655D291323B60085AA73 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4593655F291323C30085AA73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45936561291323D90085AA73 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellWithoutImage.swift; sourceTree = "<group>"; };
 		723229E52915ACD6004FD675 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		723229E72915AE92004FD675 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		DA1D958929188306005D83B1 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				458DBA972904C7D800E6C385 /* ViewController.swift */,
 				DA1D958929188306005D83B1 /* FolderTableViewCell.swift */,
 				458DBA992904C7D800E6C385 /* Main.storyboard */,
+				45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */,
 				723229E72915AE92004FD675 /* StartUpViewController.swift */,
 				457B672729159A8C00B88F0A /* MyPageViewController.swift */,
 				457B672929159AA100B88F0A /* DataViewController.swift */,
@@ -122,6 +127,7 @@
 				458DBAA12904C7DB00E6C385 /* Info.plist */,
 				1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */,
 				1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */,
+				2D7D748229392B1200597656 /* ScribbleViewController.swift */,
 			);
 			path = Scribbly;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */,
 				451AC23229133A2900178F9E /* Folder.swift in Sources */,
 				458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */,
+				2D7D748329392B1200597656 /* ScribbleViewController.swift in Sources */,
 				4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */,
 				DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */,
 				1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */,
@@ -216,6 +223,7 @@
 				1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */,
 				458DBA962904C7D800E6C385 /* SceneDelegate.swift in Sources */,
 				DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */,
+				45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */,
 				457B672829159A8C00B88F0A /* MyPageViewController.swift in Sources */,
 				457B672A29159AA100B88F0A /* DataViewController.swift in Sources */,
 				457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */,
@@ -371,6 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scribbly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -398,6 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scribbly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

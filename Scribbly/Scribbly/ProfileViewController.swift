@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     func getProfileInfo(){
         if let StoredUserName = UserDefaults.standard.object(forKey: "StoredUserName") as? String{
             storedName = StoredUserName
-            print(storedName ?? "default")
+            print("login:", storedName ?? "default")
             username_display.text = storedName
         }
     }

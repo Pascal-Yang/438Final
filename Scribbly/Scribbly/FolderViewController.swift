@@ -11,6 +11,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func AddNewTapped(_ sender: Any) {
+
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let addNewViewController = mainStoryboard.instantiateViewController(withIdentifier: "AddNewController") as? AddNewController else{
             print("Couldn't find view controller")
@@ -22,14 +23,16 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func StartLearningTapped(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let displayViewController = mainStoryboard.instantiateViewController(withIdentifier: "display") as? DisplayViewController else{
-            print("Couldn't find view controller")
-            return
-        }
-        print("going to displayView with key=\(courseKey)")
-        displayViewController.courseKey = courseKey
-        navigationController?.pushViewController(displayViewController, animated: true)
+        print("reload...")
+        tableView.reloadData()
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        guard let displayViewController = mainStoryboard.instantiateViewController(withIdentifier: "display") as? DisplayViewController else{
+//            print("Couldn't find view controller")
+//            return
+//        }
+//        print("going to displayView with key=\(courseKey)")
+//        displayViewController.courseKey = courseKey
+//        navigationController?.pushViewController(displayViewController, animated: true)
     }
     
     var courseKey:String = "ECON 1011: Micro Econ"
@@ -37,17 +40,19 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = MyColor.darkBlue
+        
+
+//        self.tableView.backgroundColor = MyColor.blue1
         tableView.delegate = self
         tableView.dataSource = self
         
         var tempCardList:[FlashCard] = []
         
         // test values
-        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", id: 1, learned: false)
+        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
         
-        let t2 = FlashCard(frontTxt: "microeconomics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.",id: 2, learned: false)
-        let t3 = FlashCard(frontTxt: "labor force",backTxt: " the sum of employed and unemployed persons",id:3, learned: false)
+        let t2 = FlashCard(frontTxt: "micro economics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(systemName: "house")!, id: 2, learned: false)
+        let t3 = FlashCard(frontTxt: "labor force with many unnecessary words added to this lable",backTxt: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", scribble:UIImage(named: "dog")!, id:3, learned: false)
         
         tempCardList = [t1,t2,t3]
         
@@ -93,6 +98,14 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         data = fetchAllCards()
         tableView.reloadData()
         
+        for card in data{
+            if card.photo_data == UIImage(systemName: "house")?.pngData(){
+                print("no scribble")
+            }else{
+                print("scribble")
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,33 +113,64 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FolderTableViewCell
+        
+        if data[indexPath.row].photo_data == UIImage(systemName: "house")?.pngData(){
+            // without image
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellWithoutImage", for: indexPath) as! FolderTableViewCellWithoutImage
+            //set text contents
+            cell.term.text = data[indexPath.row].FrontText
+            cell.definition.text = data[indexPath.row].BackText
+            
+            // layout
+            cell.container.layer.borderColor = MyColor.green1.cgColor
+            return cell
+            
+        }else{
+            // with image
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FolderTableViewCell
+            // set text contents
+            cell.term.text = data[indexPath.row].FrontText
+            cell.definition.text = data[indexPath.row].BackText
+            cell.scribble.image = UIImage(data: data[indexPath.row].photo_data)
+            
 
-        cell.term.text = data[indexPath.row].FrontText
-        cell.definition.text = data[indexPath.row].BackText
-        cell.backgroundColor = UIColor.clear
-        cell.term.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        cell.definition.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        cell.term.textColor = UIColor.white
-        cell.definition.textColor = UIColor.white
-        cell.definition.backgroundColor = MyColor.darkBlue
-        cell.term.layer.zPosition = 10
-        cell.backgroundColor = UIColor.clear
-        cell.contentView.layer.borderWidth = 1
-        return cell
+            // layout
+            cell.container.layer.borderColor = MyColor.green1.cgColor
+            return cell
+        }
+        
     }
     
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        
+        if data[indexPath.row].photo_data == UIImage(systemName: "house")?.pngData(){
+            return 150
+        }else{
+            return 350
+        }
+        
     }
-  
+
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             data.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let displayViewController = mainStoryboard.instantiateViewController(withIdentifier: "display") as? DisplayViewController else{
+            print("Couldn't find view controller")
+            return
+        }
+        displayViewController.currentIndex = indexPath.row
+        displayViewController.courseKey = self.courseKey
+        navigationController?.pushViewController(displayViewController, animated: true)
+        
     }
    
 
