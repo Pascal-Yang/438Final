@@ -13,10 +13,11 @@ class DataViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
-    
+    @IBOutlet weak var scribble_view: UIImageView!
     
     var questionText:String = "default question"
     var answerText:String = "default answer"
+    var scribble_img = UIImage(systemName: "house")!
     
     var index:Int = 0
     
@@ -33,10 +34,12 @@ class DataViewController: UIViewController {
         if rear{
             frontLabel.isHidden = true
             backLabel.isHidden = false
+            scribble_view.isHidden = false
             self.view.backgroundColor = MyColor.blue1
         }else{
             frontLabel.isHidden = false
             backLabel.isHidden = true
+            scribble_view.isHidden = true
             self.view.backgroundColor = MyColor.green3
         }
     }
@@ -46,6 +49,7 @@ class DataViewController: UIViewController {
         
         frontLabel.text = questionText
         backLabel.text = answerText
+        scribble_view.image = self.scribble_img
         
         updateContents()
         

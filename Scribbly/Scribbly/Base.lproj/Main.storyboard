@@ -114,7 +114,7 @@
                                                     <rect key="frame" x="158" y="0.0" width="222" height="125"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -264,6 +264,15 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-IA-X9V">
+                                        <rect key="frame" x="252" y="296" width="70" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                        <connections>
+                                            <segue destination="4Bi-9P-bLh" kind="show" id="Kmk-hg-T2T"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                             </view>
@@ -275,6 +284,7 @@
                     <connections>
                         <outlet property="definitionContent" destination="fAI-ca-7JO" id="Iab-QL-ZF1"/>
                         <outlet property="definitionInfo" destination="9JI-7o-Vct" id="0Ha-pU-06u"/>
+                        <outlet property="scribble" destination="bos-fs-has" id="NTX-O8-w4f"/>
                         <outlet property="termContent" destination="CXO-oh-u2t" id="g2Z-Vq-ERJ"/>
                         <outlet property="termInfo" destination="XC5-mm-tbc" id="NdR-w3-UPN"/>
                     </connections>
@@ -282,6 +292,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Yp-ct-jXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5636.9230769230771" y="-596.44549763033172"/>
+        </scene>
+        <!--Scribble View Controller-->
+        <scene sceneID="LSQ-3h-Yx8">
+            <objects>
+                <viewController id="4Bi-9P-bLh" customClass="ScribbleViewController" customModule="Scribbly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wAk-VO-JBh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-4d-gkO">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-Ab-hO8">
+                                <rect key="frame" x="55" y="600" width="69" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zup-MF-bRQ">
+                                <rect key="frame" x="157" y="600" width="181" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qQ2-iz-Gog"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rlS-Ut-sR0"/>
+                    <connections>
+                        <outlet property="CanvasView" destination="z2a-4d-gkO" id="oK4-aD-SGT"/>
+                        <outlet property="panelView" destination="BqB-Ab-hO8" id="7lg-yf-2YX"/>
+                        <outlet property="sliderView" destination="Zup-MF-bRQ" id="Jr4-oA-TPJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFD-IL-63m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6627.6923076923076" y="-596.44549763033172"/>
         </scene>
         <!--Card Edit View Controller-->
         <scene sceneID="CDf-um-K16">
@@ -474,6 +522,10 @@
                                 <color key="textColor" name="green1"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFK-9x-aAK">
+                                <rect key="frame" x="75" y="130" width="240" height="242"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tkm-D6-KRk"/>
                         <color key="backgroundColor" name="green3"/>
@@ -489,6 +541,7 @@
                     <connections>
                         <outlet property="backLabel" destination="Y4k-GV-Veb" id="i8x-CI-3jN"/>
                         <outlet property="frontLabel" destination="JXH-ue-YG7" id="fe2-kP-Tbc"/>
+                        <outlet property="scribble_view" destination="eFK-9x-aAK" id="T5X-Gg-U4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NA-t4-g5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

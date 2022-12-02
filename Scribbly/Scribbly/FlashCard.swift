@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct FlashCard: Codable{
     
@@ -18,18 +19,22 @@ struct FlashCard: Codable{
     var BackText:String = "default back text"
     var id:Int = -1
     var learned:Bool = false
+    var photo_data: Data
+        
 
-    init(frontTxt:String, backTxt:String, id:Int){
+    init(frontTxt:String, backTxt:String, scribble: UIImage, id:Int){
         FrontText = frontTxt
         BackText = backTxt
         self.id = id
+        self.photo_data = scribble.pngData()!
     }
     
-    init(frontTxt:String, backTxt:String, id:Int, learned:Bool){
+    init(frontTxt:String, backTxt:String, scribble: UIImage, id:Int, learned:Bool){
         self.learned = learned
         FrontText = frontTxt
         BackText = backTxt
         self.id = id
+        self.photo_data = scribble.pngData()!
     }
     
 }

@@ -12,6 +12,7 @@
 		1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */; };
 		1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */; };
 		1DA79FC22917F77700B9B6CC /* ReusableValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FC12917F77700B9B6CC /* ReusableValues.swift */; };
+		2D7D748329392B1200597656 /* ScribbleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D748229392B1200597656 /* ScribbleViewController.swift */; };
 		451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22D2913260E00178F9E /* CardEditViewController.swift */; };
 		451AC230291337C300178F9E /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC22F291337C300178F9E /* FlashCard.swift */; };
 		451AC23229133A2900178F9E /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AC23129133A2900178F9E /* Folder.swift */; };
@@ -40,6 +41,7 @@
 		1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		1DA79FC12917F77700B9B6CC /* ReusableValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableValues.swift; sourceTree = "<group>"; };
+		2D7D748229392B1200597656 /* ScribbleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScribbleViewController.swift; sourceTree = "<group>"; };
 		451AC22D2913260E00178F9E /* CardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
 		451AC22F291337C300178F9E /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
 		451AC23129133A2900178F9E /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				458DBAA12904C7DB00E6C385 /* Info.plist */,
 				1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */,
 				1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */,
+				2D7D748229392B1200597656 /* ScribbleViewController.swift */,
 			);
 			path = Scribbly;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */,
 				451AC23229133A2900178F9E /* Folder.swift in Sources */,
 				458DBA942904C7D800E6C385 /* AppDelegate.swift in Sources */,
+				2D7D748329392B1200597656 /* ScribbleViewController.swift in Sources */,
 				4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */,
 				DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */,
 				1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */,

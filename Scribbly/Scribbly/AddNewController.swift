@@ -14,6 +14,8 @@ class AddNewController: UIViewController{
     
     var courseKey:String = ""
     
+    var scribble_image:UIImage? = UIImage(systemName: "house")!
+    
     override func viewDidLoad() {
         print("addNewController loaded with courseKey=\(courseKey)")
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class AddNewController: UIViewController{
     
     @IBOutlet weak var termContent: UITextField!
     
+    @IBOutlet weak var scribble: UIImageView!
     
     @IBOutlet weak var definitionInfo: UILabel!
     
@@ -34,7 +37,8 @@ class AddNewController: UIViewController{
         let definitionText = definitionContent.text!
         CardList = fetchAllCards()
         
-        let tx = FlashCard(frontTxt: termText, backTxt: definitionText, id: CardList.count+1)
+        
+        let tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:scribble_image!, id: CardList.count+1)
         CardList.append(tx)
         termContent.text = ""
         definitionContent.text = ""
@@ -86,5 +90,14 @@ class AddNewController: UIViewController{
             print("Unable to Encode Array of Folders (\(error))")
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scribble.image = scribble_image
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scribble.image = scribble_image
+    }
+    
     
 }

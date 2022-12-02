@@ -59,8 +59,6 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         sortSections()
-        
-
     } 
     
     override func viewDidAppear(_ animated: Bool) {

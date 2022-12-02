@@ -44,10 +44,10 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var tempCardList:[FlashCard] = []
         
         // test values
-        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", id: 1, learned: false)
+        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(systemName: "house")!, id: 1, learned: false)
         
-        let t2 = FlashCard(frontTxt: "microeconomics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.",id: 2, learned: false)
-        let t3 = FlashCard(frontTxt: "labor force",backTxt: " the sum of employed and unemployed persons",id:3, learned: false)
+        let t2 = FlashCard(frontTxt: "microeconomics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(systemName: "house")!, id: 2, learned: false)
+        let t3 = FlashCard(frontTxt: "labor force",backTxt: " the sum of employed and unemployed persons", scribble:UIImage(systemName: "house")!, id:3, learned: false)
         
         tempCardList = [t1,t2,t3]
         
@@ -113,6 +113,8 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.term.layer.zPosition = 10
         cell.backgroundColor = UIColor.clear
         cell.contentView.layer.borderWidth = 1
+        cell.imageView?.image = UIImage(data: data[indexPath.row].photo_data)
+        
         return cell
     }
     
