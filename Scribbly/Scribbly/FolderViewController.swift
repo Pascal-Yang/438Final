@@ -11,6 +11,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func AddNewTapped(_ sender: Any) {
+
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let addNewViewController = mainStoryboard.instantiateViewController(withIdentifier: "AddNewController") as? AddNewController else{
             print("Couldn't find view controller")
@@ -39,7 +40,9 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = MyColor.darkBlue
+        
+
+//        self.tableView.backgroundColor = MyColor.blue1
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -48,7 +51,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // test values
         let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
         
-        let t2 = FlashCard(frontTxt: "micro economics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(named: "dog")!, id: 2, learned: false)
+        let t2 = FlashCard(frontTxt: "micro economics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(systemName: "house")!, id: 2, learned: false)
         let t3 = FlashCard(frontTxt: "labor force with many unnecessary words added to this lable",backTxt: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", scribble:UIImage(named: "dog")!, id:3, learned: false)
         
         tempCardList = [t1,t2,t3]
@@ -117,20 +120,22 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //set text contents
             cell.term.text = data[indexPath.row].FrontText
             cell.definition.text = data[indexPath.row].BackText
-            cell.contentView.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.green.cgColor
-            cell.layer.cornerRadius=5
+            
+            // layout
+            cell.container.layer.borderColor = MyColor.green1.cgColor
             return cell
+            
         }else{
             // with image
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FolderTableViewCell
-            //set text contents
+            // set text contents
             cell.term.text = data[indexPath.row].FrontText
             cell.definition.text = data[indexPath.row].BackText
             cell.scribble.image = UIImage(data: data[indexPath.row].photo_data)
-            cell.contentView.layer.borderWidth = 2
-            cell.layer.borderColor = UIColor.green.cgColor
-            cell.layer.cornerRadius=20
+            cell.scribble.layer.cornerRadius = 35
+
+            // layout
+            cell.container.layer.borderColor = MyColor.green1.cgColor
             return cell
         }
         

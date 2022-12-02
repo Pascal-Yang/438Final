@@ -12,5 +12,8 @@ class FolderTableViewCell: UITableViewCell {
     @IBOutlet weak var definition: UITextView!
     @IBOutlet weak var rightBox: UIView!
     @IBOutlet weak var scribble: UIImageView!
+
+    @IBOutlet weak var container: UIView!
+    
 }
 

@@ -11,4 +11,5 @@ class FolderTableViewCellWithoutImage: UITableViewCell {
     @IBOutlet weak var term: UILabel!
     @IBOutlet weak var definition: UITextView!
     
+    @IBOutlet weak var container: UIView!
 }
