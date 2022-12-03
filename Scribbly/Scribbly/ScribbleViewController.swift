@@ -23,7 +23,7 @@ extension UIView {
 
 class Canvas: UIView{
     
-    var lineColor : UIColor = UIColor.red
+    var lineColor : UIColor = UIColor.white
     var lineWidth : CGFloat = 1
     
     var line = [CGPoint]()
@@ -168,7 +168,7 @@ class ScribbleViewController: UIViewController {
     let colorWell : UIColorWell = {
         let colorWell = UIColorWell()
         colorWell.supportsAlpha = true
-        colorWell.selectedColor = UIColor.red
+        colorWell.selectedColor = UIColor.white
         colorWell.title = "Line Color"
         return colorWell
         
