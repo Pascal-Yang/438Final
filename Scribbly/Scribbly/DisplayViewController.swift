@@ -27,6 +27,11 @@ class DisplayViewController: UIViewController {
     var ratio:Double = 0 {
         didSet{
             progressBar.animateValue(to: CGFloat(ratio))
+            if ratio >= 0.94{
+                progressBar.backgroundColor = MyColor.green3
+            }else{
+                progressBar.backgroundColor = MyColor.green1
+            }
         }
     }
     
@@ -70,6 +75,19 @@ class DisplayViewController: UIViewController {
         
     }
     
+    func scaleRatio(rawRatio:Double)->Double{
+        
+        var res = 0.0
+        
+        if rawRatio == 0{
+            res = 0.0
+        }else{
+            res = 0.06 + (rawRatio * (0.94-0.06))
+        }
+        
+        return res
+    }
+    
     // update the learn status of data and record it to userdefault
     func updateCardData(learned:Bool, index:Int){
         
@@ -80,7 +98,10 @@ class DisplayViewController: UIViewController {
                 finishCount += 1
             }
         }
-        let finishRatio:Double = data.count == 0 ? 0 : finishCount/Double(data.count)
+        
+        var finishRatio:Double = data.count == 0 ? 0 : finishCount/Double(data.count)
+        finishRatio = scaleRatio(rawRatio: finishRatio)
+        
         
         self.ratio = finishRatio
         

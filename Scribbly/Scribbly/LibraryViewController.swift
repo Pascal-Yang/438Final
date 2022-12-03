@@ -96,11 +96,20 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             
         let section = sections[indexPath.section]
         let folder = section.savedFolders[indexPath.row] as FolderInfo
-//        print(String(folder.name))
         cell.folderName.text = folder.name
+        
+        // updat progress bar
         cell.progressBar.animateValue(to: folder.progress)
         cell.progressBar.color = MyColor.green3
+        if folder.progress == 0.94{
+            cell.progressBar.backgroundColor = MyColor.green3
+        }else{
+            cell.progressBar.backgroundColor = MyColor.green2
+        }
+        
         cell.backgroundColor = UIColor.clear
+        
+        
         cell.folderName.layer.zPosition = 10
         cell.folderName.textColor = MyColor.darkBlue
         cell.folderName.font = Font.H2
