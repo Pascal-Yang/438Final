@@ -74,23 +74,29 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func fetchAllCards()->[FlashCard]{
-        
+        var cards:[FlashCard] = []
         if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
-            
             do {
                 let decoder = JSONDecoder()
                 let folder:Folder = try decoder.decode(Folder.self, from: fetchdata)
-                let cards = folder.CardList
-                return cards
+                cards = folder.CardList
             } catch {
                 print("Unable to Decode Folder")
             }
+        }else{
+            // save changes to backend
+            let newFolder = Folder(CardList: [], name: courseKey, progress: 0)
+            // save to DB
+            do {
+                let encoder = JSONEncoder()
+                let toInsert = try encoder.encode(newFolder)
+                UserDefaults.standard.set(toInsert, forKey: courseKey)
+            } catch {
+                print("Unable to Encode Array of Folders (\(error))")
+            }
+            cards = []
         }
-        
-        let message = UIAlertController(title: "Error", message: "The course does not exist", preferredStyle: .alert)
-        message.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(message, animated: true, completion: nil)
-        return []
+        return cards
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,23 +161,33 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+            
+            print("removing card at index \(indexPath.row)")
+           
+            
             data.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
-           
+            print(data)
+            
             
             // save changes to backend
             var newFolder = Folder(CardList: data, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
             
-            //update progress
-            var count = 0.0
-            for card in data{
-                if card.learned{
-                    count += 1
+            if data.count == 0{
+                newFolder.progress = 0
+            }else{
+                //update progress
+                var count = 0.0
+                for card in data{
+                    if card.learned{
+                        count += 1
+                    }
                 }
+                newFolder.progress = count / Double(data.count)
             }
-            newFolder.progress = count / Double(data.count)
             
+           
             // save to DB
             do {
                 let encoder = JSONEncoder()
