@@ -48,24 +48,24 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var tempCardList:[FlashCard] = []
         
-        // test values
-        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
-        
-        let t2 = FlashCard(frontTxt: "micro economics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(systemName: "house")!, id: 2, learned: false)
-        let t3 = FlashCard(frontTxt: "labor force with many unnecessary words added to this lable",backTxt: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", scribble:UIImage(named: "dog")!, id:3, learned: false)
-        
-        tempCardList = [t1,t2,t3]
-        
-        let Folder1 = Folder(CardList: tempCardList, name: courseKey, progress: 0)
-        
-
-        do {
-            let encoder = JSONEncoder()
-            let toInsert = try encoder.encode(Folder1)
-            UserDefaults.standard.set(toInsert, forKey: courseKey)
-        } catch {
-            print("Unable to Encode Array of Folders (\(error))")
-        }
+//        // test values
+//        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
+//
+//        let t2 = FlashCard(frontTxt: "micro economics",backTxt: "the part of economics concerned with single factors and the effects of individual decisions.", scribble:UIImage(systemName: "house")!, id: 2, learned: false)
+//        let t3 = FlashCard(frontTxt: "labor force with many unnecessary words added to this lable",backTxt: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", scribble:UIImage(named: "dog")!, id:3, learned: false)
+//
+//        tempCardList = [t1,t2,t3]
+//
+//        let Folder1 = Folder(CardList: tempCardList, name: courseKey, progress: 0)
+//
+//
+//        do {
+//            let encoder = JSONEncoder()
+//            let toInsert = try encoder.encode(Folder1)
+//            UserDefaults.standard.set(toInsert, forKey: courseKey)
+//        } catch {
+//            print("Unable to Encode Array of Folders (\(error))")
+//        }
         
         data = fetchAllCards()
         
@@ -74,23 +74,29 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func fetchAllCards()->[FlashCard]{
-        
+        var cards:[FlashCard] = []
         if let fetchdata = UserDefaults.standard.data(forKey: courseKey) {
-            
             do {
                 let decoder = JSONDecoder()
                 let folder:Folder = try decoder.decode(Folder.self, from: fetchdata)
-                let cards = folder.CardList
-                return cards
+                cards = folder.CardList
             } catch {
                 print("Unable to Decode Folder")
             }
+        }else{
+            // save changes to backend
+            let newFolder = Folder(CardList: [], name: courseKey, progress: 0)
+            // save to DB
+            do {
+                let encoder = JSONEncoder()
+                let toInsert = try encoder.encode(newFolder)
+                UserDefaults.standard.set(toInsert, forKey: courseKey)
+            } catch {
+                print("Unable to Encode Array of Folders (\(error))")
+            }
+            cards = []
         }
-        
-        let message = UIAlertController(title: "Error", message: "The course does not exist", preferredStyle: .alert)
-        message.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(message, animated: true, completion: nil)
-        return []
+        return cards
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,8 +161,42 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+            
+            print("removing card at index \(indexPath.row)")
+           
+            
             data.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            print(data)
+            
+            
+            // save changes to backend
+            var newFolder = Folder(CardList: data, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
+            
+            if data.count == 0{
+                newFolder.progress = 0
+            }else{
+                //update progress
+                var count = 0.0
+                for card in data{
+                    if card.learned{
+                        count += 1
+                    }
+                }
+                newFolder.progress = count / Double(data.count)
+            }
+            
+           
+            // save to DB
+            do {
+                let encoder = JSONEncoder()
+                let toInsert = try encoder.encode(newFolder)
+                UserDefaults.standard.set(toInsert, forKey: courseKey)
+            } catch {
+                print("Unable to Encode Array of Folders (\(error))")
+            }
+            
         }
     }
     

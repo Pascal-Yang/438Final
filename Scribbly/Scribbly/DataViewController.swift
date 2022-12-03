@@ -36,6 +36,11 @@ class DataViewController: UIViewController {
             backLabel.isHidden = false
             scribble_view.isHidden = false
             self.view.backgroundColor = MyColor.blue1
+            
+            if scribble_img.pngData() == UIImage(systemName: "house")?.pngData(){
+                scribble_view.isHidden = true
+            }
+            
         }else{
             frontLabel.isHidden = false
             backLabel.isHidden = true
