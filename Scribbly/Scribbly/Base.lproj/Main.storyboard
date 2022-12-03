@@ -64,6 +64,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVr-al-qsz">
+                                <rect key="frame" x="325" y="774" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="green3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="person.fill" catalog="system" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="toProfileView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOX-Vj-eFL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.09525511414" green="0.12720587850000001" blue="0.22304895520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,11 +94,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="tft-C7-lfz" id="Oxs-Cb-hZY"/>
+                        <outlet property="toProfile" destination="dVr-al-qsz" id="d2r-Jh-K99"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.913043478261" y="-595.3125"/>
+            <point key="canvasLocation" x="2573.8461538461538" y="-595.73459715639808"/>
         </scene>
         <!--Folder View Controller-->
         <scene sceneID="3Wg-YX-7sn">
@@ -1246,6 +1257,7 @@
         <image name="icons8-book-stack-32" width="32" height="32"/>
         <image name="icons8-logout-rounded-32" width="32" height="32"/>
         <image name="icons8-male-user-32" width="32" height="32"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="blue1">
             <color red="0.17254901960784313" green="0.22352941176470589" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
