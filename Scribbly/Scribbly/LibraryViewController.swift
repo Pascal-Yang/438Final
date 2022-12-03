@@ -20,8 +20,13 @@ var curTable: UITableView!
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
     
+    @IBOutlet weak var toProfile: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // button to profile
+        toProfile.setTitleColor(MyColor.green3, for: UIControl.State.normal)
         
         let logoutBtn = UIBarButtonItem()
         logoutBtn.tintColor = UIColor.red
@@ -75,12 +80,6 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let section = sections[indexPath.section]
-        let folder = section.savedFolders[indexPath.row] as FolderInfo
-//        print(String(folder.name))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -191,6 +190,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         sortSections()
     }
 
+    @IBAction func toProfileView(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let profileVC = mainStoryboard.instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController else{
+            print("Couldn't find view controller")
+            return
+        }
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
     
 }
 
