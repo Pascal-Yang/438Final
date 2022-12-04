@@ -30,9 +30,9 @@ class DisplayView: UIView {
     
     private var modelValue: CGFloat = 0
     
-    private let valueView = UIView()
+    let valueView = UIView()
     
-    private var valueFrame: CGRect {
+    var valueFrame: CGRect {
         var widthFraction = self.modelValue
         if widthFraction < 0 { widthFraction = 0 }
         if widthFraction > 1 { widthFraction = 1 }
