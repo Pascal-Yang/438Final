@@ -50,7 +50,7 @@ public func defaultUserFolders() {
         if let data = UserDefaults.standard.data(forKey: "folders") {
             do {
                 let decoder = JSONDecoder()
-                var allFolders = try decoder.decode([FolderInfo].self, from: data)
+                let allFolders = try decoder.decode([FolderInfo].self, from: data)
                 for f in allFolders{
                     if(f.owner == "test"){
                         not_set = false
@@ -127,7 +127,7 @@ public func defaultUserFlashCards() {
         if let data = UserDefaults.standard.data(forKey: "folders") {
             do {
                 let decoder = JSONDecoder()
-                var allFolders = try decoder.decode([FolderInfo].self, from: data)
+                let allFolders = try decoder.decode([FolderInfo].self, from: data)
                 for f in allFolders{
                     if(f.owner == "test"){
                         not_set = false
@@ -166,5 +166,15 @@ public func defaultUserFlashCards() {
 
                 
     }
-        
+    
 }
+        
+func resetDefaults() {
+    let defaults = UserDefaults.standard
+    let dictionary = defaults.dictionaryRepresentation()
+    dictionary.keys.forEach { key in
+        defaults.removeObject(forKey: key)
+}
+    
+}
+
