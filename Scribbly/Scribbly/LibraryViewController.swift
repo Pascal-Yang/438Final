@@ -182,6 +182,18 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if let data = UserDefaults.standard.data(forKey: "folders") {
+            do {
+                let decoder = JSONDecoder()
+                let allFolders = try decoder.decode([FolderInfo].self, from: data)
+                folders = allFolders
+                sortSections()
+            } catch {
+                print("Unable to Decode FolderInfo (\(error))")
+            }
+        }
+        
         table.reloadData()
     }
     
