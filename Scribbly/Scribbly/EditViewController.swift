@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class EditViewController: UIViewController {
+    
+    var imageAdded = false
 
     var CardList:[FlashCard] = []
     
@@ -48,7 +50,8 @@ class EditViewController: UIViewController {
         
         print(termText)
         
-        let tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:self.scribble_image!, id: self.index + 1)
+        var tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:self.scribble_image!, id: self.index + 1)
+        tx.hasImage = CardList[self.index].hasImage ? true : imageAdded
         CardList[self.index] = tx
         print(CardList)
         

@@ -110,7 +110,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
         
         for card in data{
-            if card.photo_data == UIImage(systemName: "house")?.pngData(){
+            if !card.hasImage{
                 print("no scribble")
             }else{
                 print("scribble")
@@ -125,7 +125,10 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if data[indexPath.row].photo_data == UIImage(systemName: "house")?.pngData(){
+//        if data[indexPath.row].photo_data == UIImage(systemName: "house")?.pngData(){
+        if data[indexPath.row].hasImage == false{
+            
+            print("\(data[indexPath.row].FrontText) image = \(data[indexPath.row].hasImage)")
             // without image
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellWithoutImage", for: indexPath) as! FolderTableViewCellWithoutImage
             //set text contents
@@ -137,6 +140,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
             
         }else{
+            print("\(data[indexPath.row].FrontText) image = \(data[indexPath.row].hasImage)")
             // with image
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FolderTableViewCell
             // set text contents
@@ -155,7 +159,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if data[indexPath.row].photo_data == UIImage(systemName: "house")?.pngData(){
+        if !data[indexPath.row].hasImage{
             return 150
         }else{
             return 350

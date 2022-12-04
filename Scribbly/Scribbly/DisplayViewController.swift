@@ -213,6 +213,9 @@ class DisplayViewController: UIViewController {
         dataView.answerText = data[index].BackText
         dataView.index = index
         dataView.scribble_img = UIImage(data: data[index].photo_data)!
+        dataView.hasImage = data[index].hasImage
+        
+        
         
         //check if learned
         if data[index].learned{

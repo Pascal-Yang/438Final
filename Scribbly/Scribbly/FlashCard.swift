@@ -20,6 +20,8 @@ struct FlashCard: Codable{
     var id:Int = -1
     var learned:Bool = false
     var photo_data: Data
+    
+    var hasImage:Bool = false
         
 
     init(frontTxt:String, backTxt:String, scribble: UIImage, id:Int){
