@@ -9,6 +9,11 @@ import UIKit
 
 class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var selected_index = 0
+    var img:UIImage = UIImage(systemName: "house")!
+    var term: String = ""
+    var def: String = ""
+    
     @IBOutlet weak var tableView: UITableView!
     @IBAction func AddNewTapped(_ sender: Any) {
 
@@ -157,48 +162,102 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            
-            print("removing card at index \(indexPath.row)")
-           
-            
-            data.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-            print(data)
-            
-            
-            // save changes to backend
-            var newFolder = Folder(CardList: data, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
-            
-            if data.count == 0{
-                newFolder.progress = 0
-            }else{
-                //update progress
-                var count = 0.0
-                for card in data{
-                    if card.learned{
-                        count += 1
-                    }
-                }
-                newFolder.progress = count / Double(data.count)
-            }
-            
-           
-            // save to DB
-            do {
-                let encoder = JSONEncoder()
-                let toInsert = try encoder.encode(newFolder)
-                UserDefaults.standard.set(toInsert, forKey: courseKey)
-            } catch {
-                print("Unable to Encode Array of Folders (\(error))")
-            }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit  = UIContextualAction(style: .normal, title: "Edit") { [self]
+            _,_,_ in print("edit tapped")
+            self.selected_index = indexPath.row
+            self.img = UIImage(data: data[indexPath.row].photo_data)!
+            self.term = data[indexPath.row].FrontText
+            self.def = data[indexPath.row].BackText
+            let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+            secondViewController.index = self.selected_index
+            secondViewController.scribble_image = self.img
+            secondViewController.term = self.term
+            secondViewController.content = self.def
+            secondViewController.courseKey = self.courseKey
+            self.navigationController!.pushViewController(secondViewController, animated: true)
             
         }
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [self]
+            _,_,_ in
+            print("delete tapped")
+            self.data.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            var newFolder = Folder(CardList: data, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
+            if data.count == 0{
+                            newFolder.progress = 0
+                        }else{
+                            //update progress
+                            var count = 0.0
+                            for card in data{
+                                if card.learned{
+                                    count += 1
+                                }
+                            }
+                            newFolder.progress = count / Double(data.count)
+                        }
+            
+            
+                        // save to DB
+                        do {
+                            let encoder = JSONEncoder()
+                            let toInsert = try encoder.encode(newFolder)
+                            UserDefaults.standard.set(toInsert, forKey: courseKey)
+                        } catch {
+                          print("Unable to Encode Array of Folders (\(error))")
+                        }
+            
+        }
+            
+        let swipeConfig = UISwipeActionsConfiguration(actions: [delete, edit])
+        
+        return swipeConfig
+            
     }
+    
+
+        
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//
+//            print("removing card at index \(indexPath.row)")
+//
+//
+//            data.remove(at: indexPath.row)
+//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//            print(data)
+//
+//
+//            // save changes to backend
+//            var newFolder = Folder(CardList: data, name: courseKey, progress: Double.random(in: 0.2 ..< 0.8))
+//
+//            if data.count == 0{
+//                newFolder.progress = 0
+//            }else{
+//                //update progress
+//                var count = 0.0
+//                for card in data{
+//                    if card.learned{
+//                        count += 1
+//                    }
+//                }
+//                newFolder.progress = count / Double(data.count)
+//            }
+//
+//
+//            // save to DB
+//            do {
+//                let encoder = JSONEncoder()
+//                let toInsert = try encoder.encode(newFolder)
+//                UserDefaults.standard.set(toInsert, forKey: courseKey)
+//            } catch {
+//                print("Unable to Encode Array of Folders (\(error))")
+//            }
+//
+//        }
+//    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -211,6 +270,16 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         displayViewController.courseKey = self.courseKey
         navigationController?.pushViewController(displayViewController, animated: true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? EditViewController
+        
+        vc?.index = self.selected_index
+        vc?.scribble_image = self.img
+        vc?.term = self.term
+        vc?.content = self.def
+        print("here3")
     }
    
 
