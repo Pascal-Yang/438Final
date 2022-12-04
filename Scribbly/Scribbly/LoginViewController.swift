@@ -13,22 +13,52 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var username_field: UITextField!
     @IBOutlet weak var password_field: UITextField!
+    @IBOutlet weak var background_view: UIView!
     @IBOutlet weak var alert: UILabel!
+    @IBOutlet weak var profile_photo: UIImageView!
+    @IBOutlet weak var login_button: UIButton!
     
     var input_username: String!
     var input_password: String!
     var login_success: Bool!
     var username_found: Bool!
+    var login_photo_name: String = "default_profile"
+    
+    @IBOutlet weak var username_title: UILabel!
+    @IBOutlet weak var password_title: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        username_field.layer.cornerRadius = 40
+        print(login_photo_name)
+        changePhoto()
+        
+        background_view.layer.cornerRadius = 30
+        profile_photo.layer.cornerRadius = 60
+        //set shadow
+        profile_photo.layer.shadowColor = UIColor.black.cgColor
+        profile_photo.layer.shadowOffset = CGSize(width: 3, height: 3)
+        profile_photo.layer.shadowRadius = 8
+        profile_photo.layer.shadowOpacity = 0.7
+        
+        username_title.font = Font.H2
+        password_title.font = Font.H2
+        login_button.titleLabel?.font = Font.H1
+        login_button.titleLabel?.font = Font.H1
+        login_button.layer.shadowRadius = 5
+        login_button.layer.shadowColor = UIColor.black.cgColor
+        login_button.layer.shadowOpacity = 0.3
+        login_button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
         login_success = false
         input_username = username_field.text!
         input_password = password_field.text!
         username_found = false
         alert.text = " "
+    }
+    
+    func changePhoto(){
+        profile_photo.image = UIImage(named: login_photo_name)
     }
     
     @IBAction func loginPressed(_ sender: Any) {

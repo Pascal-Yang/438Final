@@ -24,6 +24,12 @@ public enum Font {
     static let Body = UIFont.systemFont(ofSize: 14, weight: .medium)
 }
 
+public enum MyPhoto{
+    static let photo1 = UIImage(named: "profile1")
+    static let photo2 = UIImage(named: "profile2")
+    static let photo3 = UIImage(named: "profile3")
+}
+
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))

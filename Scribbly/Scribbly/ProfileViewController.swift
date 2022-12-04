@@ -10,12 +10,14 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var username_display: UILabel!
+    @IBOutlet weak var photo_display: UIImageView!
     
     var storedName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        photo_display.layer.cornerRadius = 60
         getProfileInfo()
     }
     
