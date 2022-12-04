@@ -10,6 +10,8 @@ import UIKit
 
 class AddNewController: UIViewController{
     
+    var imageAdded = false
+    
     var CardList:[FlashCard] = []
     
     var courseKey:String = ""
@@ -37,8 +39,9 @@ class AddNewController: UIViewController{
         let definitionText = definitionContent.text!
         CardList = fetchAllCards()
         
+        var tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:scribble_image!, id: CardList.count+1)
+        tx.hasImage = imageAdded
         
-        let tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:scribble_image!, id: CardList.count+1)
         CardList.append(tx)
         termContent.text = ""
         definitionContent.text = ""

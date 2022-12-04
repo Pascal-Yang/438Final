@@ -12,6 +12,7 @@ extension EditScribbleViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         (viewController as? EditViewController)?.scribble_image = image // Here you pass the to your original view controller
+        (viewController as? EditViewController)?.imageAdded = true
         print("set")
     }
 }
