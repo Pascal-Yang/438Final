@@ -60,6 +60,8 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
 //            print("Unable to Encode Array of FolderInfos (\(error))")
 //        }
     
+        defaultUserFolders()
+        
         
         // grab local data from userdefaults.standard
         if let data = UserDefaults.standard.data(forKey: "folders") {

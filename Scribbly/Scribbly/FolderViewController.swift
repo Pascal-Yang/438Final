@@ -51,7 +51,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
-        var tempCardList:[FlashCard] = []
+        //var tempCardList:[FlashCard] = []
         
 //        // test values
 //        let t1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
@@ -72,6 +72,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //            print("Unable to Encode Array of Folders (\(error))")
 //        }
         
+        defaultUserFlashCards()
         data = fetchAllCards()
         
         tableView.reloadData()
