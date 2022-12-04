@@ -764,14 +764,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZo-cm-Fvr">
-                                <rect key="frame" x="180" y="729" width="30" height="30"/>
+                                <rect key="frame" x="145" y="729" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Rs-fW-8jV"/>
-                                    <constraint firstAttribute="width" constant="30" id="hvj-bE-Yif"/>
+                                    <constraint firstAttribute="width" constant="100" id="hvj-bE-Yif"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <backgroundConfiguration key="background" cornerRadius="50"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Mark Learned" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="learnedButtonClicked:" destination="IUa-NV-Cn1" eventType="touchUpInside" id="bjf-Ce-NeV"/>
@@ -833,7 +833,7 @@
                                     <constraint firstAttribute="height" constant="31" id="TTc-jT-BrT"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="FLIP">
+                                <buttonConfiguration key="configuration" style="filled" title="FLIP" cornerStyle="capsule">
                                     <color key="baseForegroundColor" name="dark blue"/>
                                     <color key="baseBackgroundColor" name="grey"/>
                                 </buttonConfiguration>
