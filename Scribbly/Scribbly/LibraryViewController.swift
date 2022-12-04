@@ -168,7 +168,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
 
         let delete = UIContextualAction(style: .destructive, title: "Delete") {_,_,_ in
+            
             let section = sections[indexPath.section]
+            
+            // delete the cards in the folder
+            print("remove the obj at \(section.savedFolders[indexPath.row].name)")
+            UserDefaults.standard.removeObject(forKey: section.savedFolders[indexPath.row].name)
+            
+            
             if let data = UserDefaults.standard.data(forKey: "folders") {
                 do {
                     let decoder = JSONDecoder()
@@ -187,6 +194,8 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             } catch {
                 print("Unable to Encode Array of FolderInfos (\(error))")
             }
+            
+         
             
             self.sortSections()
         }

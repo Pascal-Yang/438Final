@@ -101,6 +101,26 @@ class EditFolderNameViewController: UIViewController {
                     UserDefaults.standard.set(data, forKey: "folders")
                     
                 // TODO: change corresponding folder name
+                    // fetch data
+                    var folder:Folder!
+                    if let fetchdata = UserDefaults.standard.data(forKey: prevFolder!.name) {
+                        do {
+                            let decoder = JSONDecoder()
+                            folder = try decoder.decode(Folder.self, from: fetchdata)
+                        } catch {
+                            print("Unable to Decode Folder")
+                        }
+                    }
+                    do {
+                        let encoder = JSONEncoder()
+                        let toInsert = try encoder.encode(folder)
+                        UserDefaults.standard.set(toInsert, forKey: name)
+                    } catch {
+                        print("Unable to Encode Array of Folders (\(error))")
+                    }
+                    
+                    
+                    
                 }
             } catch {
                 print("Unable to Encode Array of FolderInfos (\(error))")
