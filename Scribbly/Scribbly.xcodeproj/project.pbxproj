@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0BBAC7293D43DD007A9CF1 /* EditFolderNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0BBAC6293D43DD007A9CF1 /* EditFolderNameViewController.swift */; };
 		1D9AE7B9291C0B4A00134017 /* EzPopup in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9AE7B8291C0B4A00134017 /* EzPopup */; };
 		1D9AE7BB291C0BFC00134017 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */; };
 		1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0BBAC6293D43DD007A9CF1 /* EditFolderNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFolderNameViewController.swift; sourceTree = "<group>"; };
 		1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		1DA79FBD2915E36D00B9B6CC /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				458DBAA12904C7DB00E6C385 /* Info.plist */,
 				1DA79FBF2915E3D700B9B6CC /* DisplayView.swift */,
 				1D9AE7BA291C0BFC00134017 /* PopUpViewController.swift */,
+				1D0BBAC6293D43DD007A9CF1 /* EditFolderNameViewController.swift */,
 				2D7D748229392B1200597656 /* ScribbleViewController.swift */,
 			);
 			path = Scribbly;
@@ -226,6 +229,7 @@
 				45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */,
 				457B672829159A8C00B88F0A /* MyPageViewController.swift in Sources */,
 				457B672A29159AA100B88F0A /* DataViewController.swift in Sources */,
+				1D0BBAC7293D43DD007A9CF1 /* EditFolderNameViewController.swift in Sources */,
 				457B67022914AE9500B88F0A /* DisplayViewController.swift in Sources */,
 				451AC22E2913260E00178F9E /* CardEditViewController.swift in Sources */,
 				1D9AE7BB291C0BFC00134017 /* PopUpViewController.swift in Sources */,
