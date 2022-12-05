@@ -34,8 +34,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         // Do any additional setup after loading the view.
+    
+        
         print(login_photo_name)
         changeInfo()
         
@@ -62,27 +64,48 @@ class LoginViewController: UIViewController {
         username_found = false
         alert.text = " "
         
-        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
+        
+        if UserDefaults.standard.object(forKey: "defaultUserSet") == nil {
             
-//            if !(tempData.isEmpty){
-//                tempUsername = tempData[0][0]
-//                tempPassword = tempData[0][1]
-//                tempPhotoname = tempData[0][2]
-//                tempOriginArray = [tempUsername, tempPassword, tempPhotoname]
-//                print("this is the orginal first item: \(tempOriginArray)")
-//                //add this item to the tempData array again
-//                tempData[0] = ["test", "123", "default_profile"]
-//                tempData.append(tempOriginArray)
-//                print("UserInfoNow: \(tempData)")
-//                UserDefaults.standard.set(tempData, forKey: "UserInfo")
-//
-            if tempData.isEmpty{
-                tempData.append(["test", "123", "default_profile"])
-                print("UserInfoNow: \(tempData)")
-                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+            print("here!!!!!")
+
+            do {
+                 UserDefaults.standard.set([["test", "123", "default_profile"]], forKey: "UserInfo")
+             } catch {
+                 print("Unable to Encode Default User (\(error))")
+             }
+            
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode("default configured")
+                UserDefaults.standard.set(data, forKey: "defaultUserSet")
+            } catch {
+                print("Unable to Encode Array of Notes (\(error))")
+
             }
-            
         }
+        
+//        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]] {
+//
+//
+//            tempUsername = tempData[0][0]
+//            tempPassword = tempData[0][1]
+//            tempPhotoname = tempData[0][2]
+//            tempOriginArray = [tempUsername, tempPassword, tempPhotoname]
+//            print("this is the orginal first item: \(tempOriginArray)")
+//            //add this item to the tempData array again
+//            tempData[0] = ["test", "123", "default_profile"]
+//            tempData.append(tempOriginArray)
+//            print("UserInfoNow: \(tempData)")
+//            UserDefaults.standard.set(tempData, forKey: "UserInfo")
+//
+//
+////                tempData.append(["test", "123", "default_profile"])
+////                print("UserInfoNow: \(tempData)")
+////                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+//
+//
+//        }
         
     }
     
@@ -99,6 +122,7 @@ class LoginViewController: UIViewController {
         
         if let tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
             
+            print("yoyoyo, ", tempData)
             for item in tempData{
                 if item[0] == input_username{
                     print("found username")
@@ -107,6 +131,8 @@ class LoginViewController: UIViewController {
             }
             
             if !username_found{
+                print("user name not found")
+                print(tempData)
                 alert.text = "* username not found"
                 return
             }
@@ -123,7 +149,7 @@ class LoginViewController: UIViewController {
                             //remember this user's username and photo
                             curUser = input_username
 //                            alert.text = "* crrent user: " + curUser
-                            print("here")
+                            print("here222")
 
                             let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
                             navigationController?.pushViewController(libVC, animated: true)
@@ -140,7 +166,6 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         curUser = ""
-        print("logout pressed")
         username_field.text = ""
         password_field.text = ""
         profile_photo.image = UIImage(named: "default_profile")
