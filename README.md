@@ -60,7 +60,3 @@ User can also sign up with new Username and Password
 -	Progress bar is updated accordingly in the library view
 
 Each User has a separate set of data sets
-![image](https://user-images.githubusercontent.com/71160299/205555895-36c9fa9e-2f68-41e2-8f28-cc08c147d624.png)
-
-
-
