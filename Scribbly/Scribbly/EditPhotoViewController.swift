@@ -40,9 +40,9 @@ class EditPhotoViewController: UIViewController{
     
     @IBAction func change_pressed(_ sender: Any) {
         
-        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
-            
-        }
+//        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
+//            
+//        }
         
         //jump to profile page
         let profileVC = storyboard!.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController

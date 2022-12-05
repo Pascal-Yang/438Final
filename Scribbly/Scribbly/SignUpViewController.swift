@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]] {
+        if let tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]] {
             
             print("data get")
             print(tempData)

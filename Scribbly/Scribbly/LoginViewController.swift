@@ -69,11 +69,9 @@ class LoginViewController: UIViewController {
             
             print("here!!!!!")
 
-            do {
-                 UserDefaults.standard.set([["test", "123", "default_profile"]], forKey: "UserInfo")
-             } catch {
-                 print("Unable to Encode Default User (\(error))")
-             }
+            
+            UserDefaults.standard.set([["test", "123", "default_profile"]], forKey: "UserInfo")
+            
             
             do {
                 let encoder = JSONEncoder()

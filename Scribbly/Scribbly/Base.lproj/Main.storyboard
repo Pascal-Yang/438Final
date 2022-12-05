@@ -81,7 +81,7 @@
                         <color key="backgroundColor" red="0.09525511414" green="0.12720587850000001" blue="0.22304895520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scribbly" id="P0b-ZF-QjE">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="uaY-1C-cZ2">
+                        <barButtonItem key="rightBarButtonItem" id="uaY-1C-cZ2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pyt-nf-D5c" userLabel="Add">
                                 <rect key="frame" x="288" y="6.6666666666666679" width="86" height="31.000000000000004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1400,7 +1400,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7ml-xL-7A9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q2C-LO-13J" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="asdfgh" automaticallyAdjustsScrollViewInsets="NO" id="q2C-LO-13J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iqN-hl-Mi8">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -1418,7 +1418,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nvH-OS-n5s">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOy-5h-o5r" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="fgbhnjkda" automaticallyAdjustsScrollViewInsets="NO" id="jOy-5h-o5r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dg1-II-XTr">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -1533,7 +1533,7 @@
         <!--Navigation Controller-->
         <scene sceneID="opj-F2-OFT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Br1-sB-oag" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="kjasdkj" automaticallyAdjustsScrollViewInsets="NO" id="Br1-sB-oag" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D6K-jl-aFN">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
