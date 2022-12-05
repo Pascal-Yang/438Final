@@ -35,7 +35,7 @@ A Flashcard App that allows users to associate quick sketches to definitions.
 - User may either register for a new account or use the existing account "test"
 
 
-### Further details
+## Features
 Users may either register a new account or log in with the “Existing User” account.
 
 One can log in without signing up using the Username and Password of the Existing User.
