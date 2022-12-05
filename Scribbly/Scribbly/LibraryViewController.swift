@@ -20,8 +20,13 @@ var curTable: UITableView!
 class LibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
     
+    @IBOutlet weak var toProfile: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // button to profile
+        toProfile.setTitleColor(MyColor.green3, for: UIControl.State.normal)
         
         let logoutBtn = UIBarButtonItem()
         logoutBtn.tintColor = UIColor.red
@@ -77,12 +82,6 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let section = sections[indexPath.section]
-        let folder = section.savedFolders[indexPath.row] as FolderInfo
-//        print(String(folder.name))
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].savedFolders.count
     }
@@ -97,11 +96,20 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
             
         let section = sections[indexPath.section]
         let folder = section.savedFolders[indexPath.row] as FolderInfo
-//        print(String(folder.name))
         cell.folderName.text = folder.name
+        
+        // updat progress bar
         cell.progressBar.animateValue(to: folder.progress)
         cell.progressBar.color = MyColor.green3
+        if folder.progress == 0.94{
+            cell.progressBar.backgroundColor = MyColor.green3
+        }else{
+            cell.progressBar.backgroundColor = MyColor.green2
+        }
+        
         cell.backgroundColor = UIColor.clear
+        
+        
         cell.folderName.layer.zPosition = 10
         cell.folderName.textColor = MyColor.darkBlue
         cell.folderName.font = Font.H2
@@ -174,6 +182,18 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if let data = UserDefaults.standard.data(forKey: "folders") {
+            do {
+                let decoder = JSONDecoder()
+                let allFolders = try decoder.decode([FolderInfo].self, from: data)
+                folders = allFolders
+                sortSections()
+            } catch {
+                print("Unable to Decode FolderInfo (\(error))")
+            }
+        }
+        
         table.reloadData()
     }
     
@@ -191,6 +211,14 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         sortSections()
     }
 
+    @IBAction func toProfileView(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let profileVC = mainStoryboard.instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController else{
+            print("Couldn't find view controller")
+            return
+        }
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
     
 }
 

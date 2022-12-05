@@ -27,6 +27,11 @@ class DisplayViewController: UIViewController {
     var ratio:Double = 0 {
         didSet{
             progressBar.animateValue(to: CGFloat(ratio))
+            if ratio >= 0.94{
+                progressBar.backgroundColor = MyColor.green3
+            }else{
+                progressBar.backgroundColor = MyColor.green1
+            }
         }
     }
     
@@ -70,8 +75,22 @@ class DisplayViewController: UIViewController {
         
     }
     
+    func scaleRatio(rawRatio:Double)->Double{
+        
+        var res = 0.0
+        
+        if rawRatio == 0{
+            res = 0.0
+        }else{
+            res = 0.06 + (rawRatio * (0.94-0.06))
+        }
+        
+        return res
+    }
+    
     // update the learn status of data and record it to userdefault
     func updateCardData(learned:Bool, index:Int){
+        
         data[index].learned = learned
         var finishCount = 0.0
         for card in data{
@@ -79,11 +98,17 @@ class DisplayViewController: UIViewController {
                 finishCount += 1
             }
         }
-        let finishRatio:Double = finishCount/Double(data.count)
+        
+        var finishRatio:Double = data.count == 0 ? 0 : finishCount/Double(data.count)
+        finishRatio = scaleRatio(rawRatio: finishRatio)
+        
         
         self.ratio = finishRatio
         
-        var v1 = Folder(CardList: data, name: courseKey, progress: finishRatio)
+        print("Progress updated to \(finishRatio) at \(courseKey)")
+        
+        // update progresss of the folder itself
+        let v1 = Folder(CardList: data, name: courseKey, progress: finishRatio)
         do {
             let encoder = JSONEncoder()
             let toInsert = try encoder.encode(v1)
@@ -91,6 +116,32 @@ class DisplayViewController: UIViewController {
         } catch {
             print("Unable to Encode Array of Folders (\(error))")
         }
+        
+        // update progress of the folder in folderInfo array
+        if let data = UserDefaults.standard.data(forKey: "folders") {
+            var toEncodeFolders:[FolderInfo] = []
+            do {
+                let decoder = JSONDecoder()
+                var allFolders = try decoder.decode([FolderInfo].self, from: data)
+                let targetFolderIndex = allFolders.firstIndex{$0.name == courseKey}
+                allFolders[targetFolderIndex!].progress = finishRatio
+                toEncodeFolders = allFolders
+            } catch {
+                print("Unable to Decode FolderInfo (\(error))")
+            }
+            
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(toEncodeFolders)
+                UserDefaults.standard.set(data, forKey: "folders")
+            } catch {
+                print("Unable to Encode Array of FolderInfos (\(error))")
+            }
+        
+        }
+        
+        
+        
     }
     
     @IBAction func learnedButtonClicked(_ sender: Any) {

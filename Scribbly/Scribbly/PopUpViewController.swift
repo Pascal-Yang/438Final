@@ -88,7 +88,7 @@ class PopUpViewController: UIViewController {
                         print("Unable to Decode FolderInfo (\(error))")
                     }
                 }
-                let new = FolderInfo(name: name, owner: curUser, progress: Double.random(in: 0.2 ..< 0.8))
+                let new = FolderInfo(name: name, owner: curUser, progress: 0)
                 folders.append(new)
 //                print("new folders: ", folders)
                 let encoder = JSONEncoder()

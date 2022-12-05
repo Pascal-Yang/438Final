@@ -12,6 +12,7 @@ class SelectPhotoViewController: UIViewController{
     @IBOutlet weak var photo1: UIButton!
     @IBOutlet weak var photo2: UIButton!
     @IBOutlet weak var photo3: UIButton!
+    @IBOutlet weak var photo4: UIButton!
     @IBOutlet weak var background_view: UIView!
     @IBOutlet weak var button_title: UIButton!
     
@@ -29,6 +30,8 @@ class SelectPhotoViewController: UIViewController{
         photo2.layer.masksToBounds = true
         photo3.layer.cornerRadius = 20
         photo3.layer.masksToBounds = true
+        photo4.layer.cornerRadius = 20
+        photo4.layer.masksToBounds = true
         background_view.layer.borderWidth = 2
         background_view.layer.cornerRadius = 30
         background_view.layer.borderColor = MyColor.green1.cgColor
@@ -57,6 +60,7 @@ class SelectPhotoViewController: UIViewController{
         photo1.layer.borderColor = MyColor.green2.cgColor
         photo2.layer.borderColor = UIColor.clear.cgColor
         photo3.layer.borderColor = UIColor.clear.cgColor
+        photo4.layer.borderColor = UIColor.clear.cgColor
     }
     
     @IBAction func photo2_select(_ sender: Any) {
@@ -65,6 +69,7 @@ class SelectPhotoViewController: UIViewController{
         photo2.layer.borderColor = MyColor.green2.cgColor
         photo1.layer.borderColor = UIColor.clear.cgColor
         photo3.layer.borderColor = UIColor.clear.cgColor
+        photo4.layer.borderColor = UIColor.clear.cgColor
     }
     
     @IBAction func photo3_select(_ sender: Any) {
@@ -73,6 +78,16 @@ class SelectPhotoViewController: UIViewController{
         photo3.layer.borderColor = MyColor.green2.cgColor
         photo2.layer.borderColor = UIColor.clear.cgColor
         photo1.layer.borderColor = UIColor.clear.cgColor
+        photo4.layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    @IBAction func photo4_select(_ sender: Any) {
+        photoName = "profile4"
+        photo4.layer.borderWidth = 3.5
+        photo4.layer.borderColor = MyColor.green2.cgColor
+        photo2.layer.borderColor = UIColor.clear.cgColor
+        photo1.layer.borderColor = UIColor.clear.cgColor
+        photo3.layer.borderColor = UIColor.clear.cgColor
     }
     
     @IBAction func allset_pressed(_ sender: Any) {

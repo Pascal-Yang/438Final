@@ -24,6 +24,11 @@ class LoginViewController: UIViewController {
     var username_found: Bool!
     var login_photo_name: String = "default_profile"
     
+    var tempUsername = ""
+    var tempPassword = ""
+    var tempPhotoname = ""
+    var tempOriginArray:[String] = []
+    
     @IBOutlet weak var username_title: UILabel!
     @IBOutlet weak var password_title: UILabel!
     
@@ -31,7 +36,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print(login_photo_name)
-        changePhoto()
+        changeInfo()
         
         background_view.layer.cornerRadius = 30
         profile_photo.layer.cornerRadius = 60
@@ -55,10 +60,35 @@ class LoginViewController: UIViewController {
         input_password = password_field.text!
         username_found = false
         alert.text = " "
+        
+        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
+            
+//            if !(tempData.isEmpty){
+//                tempUsername = tempData[0][0]
+//                tempPassword = tempData[0][1]
+//                tempPhotoname = tempData[0][2]
+//                tempOriginArray = [tempUsername, tempPassword, tempPhotoname]
+//                print("this is the orginal first item: \(tempOriginArray)")
+//                //add this item to the tempData array again
+//                tempData[0] = ["test", "123", "default_profile"]
+//                tempData.append(tempOriginArray)
+//                print("UserInfoNow: \(tempData)")
+//                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+//
+            if tempData.isEmpty{
+                tempData.append(["test", "123", "default_profile"])
+                print("UserInfoNow: \(tempData)")
+                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+            }
+            
+        }
+        
     }
     
-    func changePhoto(){
+    func changeInfo(){
+        print("inside changePhoto: photoname = \(login_photo_name)")
         profile_photo.image = UIImage(named: login_photo_name)
+        
     }
     
     @IBAction func loginPressed(_ sender: Any) {
@@ -87,10 +117,8 @@ class LoginViewController: UIViewController {
                             login_success = true
                             //turn to the next view controller
                             
-                            //remember this user
+                            //remember this user's username and photo
                             curUser = input_username
-                            UserDefaults.standard.set(input_username, forKey: "StoredUserName")
-   
                         }else{
                             login_success = false
                             alert.text = "* incorrect password"
@@ -112,4 +140,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        curUser = ""
+        print("logout pressed")
+        username_field.text = ""
+        password_field.text = ""
+        profile_photo.image = UIImage(named: "default_profile")
+    }
 }
