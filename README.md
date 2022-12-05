@@ -8,7 +8,7 @@ A Flashcard App that allows users to associate quick sketches to definitions.
 - [@Elyse-Tang](https://github.com/Elyse-Tang)
 - [@Oscar-Zhu](https://github.com/oscarzhu142857)
 - [@Kristen-Wang](https://github.com/KristennnnW)
-- @Jingyuan-Zhu
+- [@Jingyuan-Zhu](https://github.com/Jingyuan-zhu)
 
 ## Existing User
 
