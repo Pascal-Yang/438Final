@@ -22,7 +22,7 @@ class StartUpViewController: UIViewController {
         signup_button.titleLabel?.font = Font.H1
         login_button.titleLabel?.font = Font.H1
         labeltext.font = Font.H2
-        print(UserDefaults.standard.object(forKey: "UserInfo") as? [[String]])
+//        print(UserDefaults.standard.object(forKey: "UserInfo") as? [[String]])
         
 //        UserDefaults.standard.set([], forKey: "UserInfo")
     }

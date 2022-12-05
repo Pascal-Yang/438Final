@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        print(UserDefaults.standard.object(forKey: "UserInfo") as? [[String]])
+//        print(UserDefaults.standard.object(forKey: "UserInfo") as? [[String]])
         print("profile photo name: \(storedPhoto)")
         photo_display.image = UIImage(named: storedPhoto)
     }
