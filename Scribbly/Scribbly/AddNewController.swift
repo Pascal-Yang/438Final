@@ -18,7 +18,7 @@ class AddNewController: UIViewController{
     
     @IBOutlet weak var button: UIButton!
     
-    var scribble_image:UIImage? = UIImage(systemName: "house")!
+    var scribble_image:UIImage? = UIImage(systemName: "highlighter")!
     
     override func viewDidLoad() {
         print("addNewController loaded with courseKey=\(courseKey)")
