@@ -36,7 +36,31 @@ A Flashcard App that allows users to associate quick sketches to definitions.
 
 
 ### Further details
+Users may either register a new account or log in with the “Existing User” account.
 
-- Please refer to the video for details 
+One can log in without signing up using the Username and Password of the Existing User.
+
+Users may fail to log in because of incorrect/non-existing username.
+
+-	The existing account with username “test” has some courses added to the folder view 
+-	Each course under account “test” already has some preconfigured flashcards
+
+User can also sign up with new Username and Password
+
+-	User can choose a cute photo image as profile image
+-	User can add a new course from the library view
+-	User can edit the course name
+-	User can add flashcards to any course
+-	Each flashcard has a term name, a definition, and a scribble(image) field
+-	The scribble (canvas) view has options to change stroke size and brush color
+-	Flashcards can be edited
+-	User can select on any card to start learning the set
+-	From the learning flow, the user can click the “check”/”uncheck” button to mark the card as learned/not yet learned
+-	Progress bar above the flashcard displays the learning progress
+-	Progress bar is updated accordingly in the library view
+
+Each User has a separate set of data sets
+![image](https://user-images.githubusercontent.com/71160299/205555895-36c9fa9e-2f68-41e2-8f28-cc08c147d624.png)
+
 
 
