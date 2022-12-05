@@ -31,7 +31,7 @@ A Flashcard App that allows users to associate quick sketches to definitions.
 - User may either register for a new account or use the existing account "test"
 
 
-###
+### Further details
 
 - Please refer to the video for details 
 
