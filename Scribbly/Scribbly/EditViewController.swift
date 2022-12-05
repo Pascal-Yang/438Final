@@ -28,11 +28,20 @@ class EditViewController: UIViewController {
         termContent.text = term
         definitionContent.text = content
         super.viewDidLoad()
+        background_view.layer.cornerRadius = 30
+        background_view.layer.borderWidth = 2
+        background_view.layer.borderColor = MyColor.green2.cgColor
+        scribble.layer.cornerRadius = 20
+        scribble.layer.borderColor = MyColor.green1.cgColor
+        scribble.layer.borderWidth = 2
+        scribble.layer.masksToBounds = true
+        scribble.layer.backgroundColor = MyColor.blue1.cgColor
     }
     
         
     @IBOutlet weak var termContent: UITextField!
         
+    @IBOutlet weak var background_view: UIView!
     
     @IBOutlet weak var scribble: UIImageView!
     

@@ -27,9 +27,9 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.pushViewController(addNewViewController, animated: true)
     }
     
-    @IBAction func StartLearningTapped(_ sender: Any) {
-        print("reload...")
-        tableView.reloadData()
+//    @IBAction func StartLearningTapped(_ sender: Any) {
+//        print("reload...")
+//        tableView.reloadData()
 //        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 //        guard let displayViewController = mainStoryboard.instantiateViewController(withIdentifier: "display") as? DisplayViewController else{
 //            print("Couldn't find view controller")
@@ -38,7 +38,7 @@ class FolderViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        print("going to displayView with key=\(courseKey)")
 //        displayViewController.courseKey = courseKey
 //        navigationController?.pushViewController(displayViewController, animated: true)
-    }
+//    }
     
     var courseKey:String = "ECON 1011: Micro Econ"
     var data:[FlashCard] = []

@@ -44,8 +44,7 @@ extension UITextField {
 }
 
 public func defaultUserFolders() {
-    var not_set = true
-    if(curUser == "test" && not_set){
+    if UserDefaults.standard.object(forKey: "defaultLibrarySet") == nil {
         let f1 = FolderInfo(name: "ECON 1011: Micro Econ", owner: "test", progress: 0.0)
         let f2 = FolderInfo(name: "CSE 417: Machine Learning", owner: "test", progress: 0.0)
         let f3 = FolderInfo(name: "Math 415: Partial Differential Equation", owner: "test", progress: 0.0)
@@ -53,47 +52,31 @@ public func defaultUserFolders() {
         let testFolderVal:[FolderInfo] = [f1,f2,f3,f4]
         
         
+        do {
+             let encoder = JSONEncoder()
+             let data = try encoder.encode(testFolderVal)
+             UserDefaults.standard.set(data, forKey: "folders")
+         } catch {
+             print("Unable to Encode Array of FolderInfos (\(error))")
+         }
         
-        if let data = UserDefaults.standard.data(forKey: "folders") {
-            do {
-                let decoder = JSONDecoder()
-                let allFolders = try decoder.decode([FolderInfo].self, from: data)
-                for f in allFolders{
-                    if(f.owner == "test"){
-                        not_set = false
-                    }
-                }
-            } catch {
-                print("Unable to Decode FolderInfo (\(error))")
-            }
-        }
-        
-        if(not_set){
         
         do {
-                 let encoder = JSONEncoder()
-                 let data = try encoder.encode(testFolderVal)
-                 UserDefaults.standard.set(data, forKey: "folders")
-             } catch {
-                 print("Unable to Encode Array of FolderInfos (\(error))")
-             }
-        
+            let encoder = JSONEncoder()
+            let data = try encoder.encode("default configured")
+            UserDefaults.standard.set(data, forKey: "defaultLibrarySet")
+        } catch {
+            print("Unable to Encode Array of Notes (\(error))")
+
         }
-        
     }
-    else{
-        //do nothing
-    }
-    UserDefaults.standard.set(false, forKey: "setBool")
 }
 
 public func defaultUserFlashCards() {
     //  test values
-    var not_set = true
-    if(curUser == "test" && not_set){
-      
-        
-        if(not_set){
+    
+    if UserDefaults.standard.object(forKey: "defaultVals") == nil {
+      //Key doesn't exist
             var Micro1 = FlashCard(frontTxt: "opportunity cost", backTxt: "the loss of potential gain from other alternatives when one alternative is chosen.", scribble:UIImage(named: "opportunityCost")!, id: 1, learned: false)
               Micro1.hasImage = true
           
@@ -143,29 +126,16 @@ public func defaultUserFlashCards() {
 
               let Folder2 = Folder(CardList: MLCardList, name: "CSE 417: Machine Learning", progress: 0)
               
-              if let data = UserDefaults.standard.data(forKey: "folders") {
-                  do {
-                      let decoder = JSONDecoder()
-                      let allFolders = try decoder.decode([FolderInfo].self, from: data)
-                      for f in allFolders{
-                          if(f.owner == "test"){
-                              not_set = false
-                          }
-                      }
-                  } catch {
-                      print("Unable to Decode FolderInfo (\(error))")
-                  }
-              }
             do {
-             let encoder = JSONEncoder()
-             let toInsert = try encoder.encode(Folder2)
-             UserDefaults.standard.set(toInsert, forKey: "CSE 417: Machine Learning")
+                 let encoder = JSONEncoder()
+                 let toInsert = try encoder.encode(Folder2)
+                 UserDefaults.standard.set(toInsert, forKey: "CSE 417: Machine Learning")
             } catch {
-             print("Unable to Encode Array of Folders (\(error))")
+                print("Unable to Encode Array of Folders (\(error))")
             }
         
-            let P1 = FlashCard(frontTxt: "", backTxt: ".", scribble:UIImage(named: "dog")!, id: 1, learned: false)
-            let P2 = FlashCard(frontTxt: "", backTxt: "", scribble:UIImage(named: "dog")!, id: 2, learned: false)
+        let P1 = FlashCard(frontTxt: "", backTxt: ".", scribble:UIImage(named: "dog")!, id: 1, learned: false)
+        let P2 = FlashCard(frontTxt: "", backTxt: "", scribble:UIImage(named: "dog")!, id: 2, learned: false)
 
         let PCardList:[FlashCard] = [P1, P2]
 
@@ -178,10 +148,15 @@ public func defaultUserFlashCards() {
         } catch {
          print("Unable to Encode Array of Folders (\(error))")
         }
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode("default configured")
+            UserDefaults.standard.set(data, forKey: "defaultVals")
+        } catch {
+            print("Unable to Encode Array of Notes (\(error))")
 
         }
-
-                
     }
     
 }
