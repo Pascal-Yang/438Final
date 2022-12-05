@@ -2,6 +2,10 @@
 
 A Flashcard App that allows users to associate quick sketches to definitions.
 
+## UI/UX design
+
+[Figma Link](https://www.figma.com/file/0M6YkzN996FCDSUrmvRAzK/438-Wireframes?node-id=0%3A1&t=j50r7HvnAVDW8pTJ-1)
+
 ## Authors
 
 - [@Pascal-Yang](https://github.com/Pascal-Yang)
