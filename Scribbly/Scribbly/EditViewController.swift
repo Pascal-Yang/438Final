@@ -1,53 +1,46 @@
 //
-//  AddNewController.swift
+//  EditViewController.swift
 //  Scribbly
 //
-//  Created by JingYuan on 2022/11/13.
+//  Created by Oscar.Z on 2022/12/4.
 //
 
 import Foundation
 import UIKit
 
-class AddNewController: UIViewController{
+class EditViewController: UIViewController {
     
     var imageAdded = false
-    
+
     var CardList:[FlashCard] = []
+    
+    var term: String = ""
+    var content: String = ""
     
     var courseKey:String = ""
     
-    @IBOutlet weak var button: UIButton!
-    
     var scribble_image:UIImage? = UIImage(systemName: "house")!
+    
+    var index:Int = 0
     
     override func viewDidLoad() {
         print("addNewController loaded with courseKey=\(courseKey)")
-    
+        termContent.text = term
+        definitionContent.text = content
         super.viewDidLoad()
-        
-        background_view.layer.cornerRadius = 30
-        background_view.layer.borderWidth = 2
-        background_view.layer.borderColor = MyColor.green2.cgColor
-        scribble.layer.cornerRadius = 20
-        scribble.layer.borderColor = MyColor.green1.cgColor
-        scribble.layer.borderWidth = 2
-        scribble.layer.masksToBounds = true
-        scribble.layer.backgroundColor = MyColor.blue1.cgColor
-        button.titleLabel?.font = Font.H1
     }
     
-
-    @IBOutlet weak var background_view: UIView!
-    
-    @IBOutlet weak var termInfo: UILabel!
-    
+        
     @IBOutlet weak var termContent: UITextField!
+        
     
     @IBOutlet weak var scribble: UIImageView!
     
     @IBOutlet weak var definitionInfo: UILabel!
     
+    
     @IBOutlet weak var definitionContent: UITextField!
+    
     
     
     @IBAction func saveNewCard(_ sender: Any) {
@@ -55,14 +48,17 @@ class AddNewController: UIViewController{
         let definitionText = definitionContent.text!
         CardList = fetchAllCards()
         
-        var tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:scribble_image!, id: CardList.count+1)
-        tx.hasImage = imageAdded
+        print(termText)
         
-        CardList.append(tx)
+        var tx = FlashCard(frontTxt: termText, backTxt: definitionText, scribble:self.scribble_image!, id: self.index + 1)
+        tx.hasImage = CardList[self.index].hasImage ? true : imageAdded
+        CardList[self.index] = tx
+        print(CardList)
+        
         termContent.text = ""
         definitionContent.text = ""
         saveCards()
-        let message = UIAlertController(title: "Success", message: "The new term has been added to the course", preferredStyle: .alert)
+        let message = UIAlertController(title: "Success", message: "Successfully Saved Edits!", preferredStyle: .alert)
         message.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(message, animated: true, completion: nil)
     }
@@ -118,5 +114,15 @@ class AddNewController: UIViewController{
         scribble.image = scribble_image
     }
     
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

@@ -43,27 +43,9 @@ class DisplayViewController: UIViewController {
         progressBar.backgroundColor = MyColor.grey
         
         
-        // get fake cards
-//        var tempCards:[FlashCard] = []
-//        for i in 1...5{
-//            tempCards.append(FlashCard(frontTxt: courseKey + "Question \(i)",
-//                                       backTxt: "Answer \(i)",
-//                                       id: i,
-//                                       learned: (i%2==0))
-//            )
-//
-//        }
-//
-//        // create a fake folder
-//        let v1 = Folder(CardList: tempCards, name: "ECON 1011: Micro Econ", progress: Double.random(in: 0.2 ..< 0.8))
-//
-//        do {
-//            let encoder = JSONEncoder()
-//            let toInsert = try encoder.encode(v1)
-//            UserDefaults.standard.set(toInsert, forKey: "ECON 1011: Micro Econ")
-//        } catch {
-//            print("Unable to Encode Array of Folders (\(error))")
-//        }
+        progressBar.layer.cornerRadius = 15
+        progressBar.valueView.layer.cornerRadius = 15
+        progressBar.valueView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         data = fetchAllCards()
         
@@ -150,8 +132,10 @@ class DisplayViewController: UIViewController {
         //check if learned
         if data[currentIndex].learned{
             learnedButton.tintColor = MyColor.green2
+            learnedButton.setTitle("uncheck", for: .normal)
         }else{
             learnedButton.tintColor = MyColor.grey
+            learnedButton.setTitle("check", for: .normal)
         }
     }
     
@@ -204,8 +188,10 @@ class DisplayViewController: UIViewController {
         //check if learned
         if data[currentIndex].learned{
             learnedButton.tintColor = MyColor.green2
+            learnedButton.setTitle("uncheck", for: .normal)
         }else{
             learnedButton.tintColor = MyColor.grey
+            learnedButton.setTitle("check", for: .normal)
         }
         
         pageView.setViewControllers([dataView], direction: .forward, animated: true)
@@ -227,12 +213,17 @@ class DisplayViewController: UIViewController {
         dataView.answerText = data[index].BackText
         dataView.index = index
         dataView.scribble_img = UIImage(data: data[index].photo_data)!
+        dataView.hasImage = data[index].hasImage
+        
+        
         
         //check if learned
         if data[index].learned{
             learnedButton.tintColor = MyColor.green2
+            learnedButton.setTitle("uncheck", for: .normal)
         }else{
             learnedButton.tintColor = MyColor.grey
+            learnedButton.setTitle("check", for: .normal)
         }
         
         return dataView

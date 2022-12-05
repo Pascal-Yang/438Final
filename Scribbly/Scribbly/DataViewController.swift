@@ -12,12 +12,14 @@ import UIKit
 class DataViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
-    @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var scribble_view: UIImageView!
+    @IBOutlet weak var backLabel: UITextView!
     
     var questionText:String = "default question"
     var answerText:String = "default answer"
     var scribble_img = UIImage(systemName: "house")!
+    
+    var hasImage = false
     
     var index:Int = 0
     
@@ -37,9 +39,20 @@ class DataViewController: UIViewController {
             scribble_view.isHidden = false
             self.view.backgroundColor = MyColor.blue1
             
-            if scribble_img.pngData() == UIImage(systemName: "house")?.pngData(){
+            if !hasImage{
                 scribble_view.isHidden = true
+                
+                
+                
+                if let myConstraint = backLabel.constraints.first(where: {$0.identifier == "height"}){
+                    myConstraint.constant = 200
+                }
+//
+//                let heightConstraint = NSLayoutConstraint(item: backLabel, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 500)
+//                backLabel.addConstraint(heightConstraint)
+                
             }
+            
             
         }else{
             frontLabel.isHidden = false

@@ -60,6 +60,8 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
 //            print("Unable to Encode Array of FolderInfos (\(error))")
 //        }
     
+        defaultUserFolders()
+        
         
         // grab local data from userdefaults.standard
         if let data = UserDefaults.standard.data(forKey: "folders") {
@@ -139,17 +141,48 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) { // add swipe to delete to each row, reload data if delete performed
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit  = UIContextualAction(style: .normal, title: "Edit") {
+            _,_,_ in
+            
             let section = sections[indexPath.section]
+            let contentVC = EditFolderNameViewController()
+            contentVC.curTable = self.table
+            contentVC.prevFolder = section.savedFolders[indexPath.row]
+            let popupVC = PopupViewController(contentController: contentVC, popupWidth: 300, popupHeight: 200)
+            popupVC.backgroundAlpha = 0.3
+            popupVC.backgroundColor = .black
+            popupVC.canTapOutsideToDismiss = true
+            popupVC.cornerRadius = 25
+            popupVC.shadowEnabled = true
+            self.present(popupVC, animated: true, completion: nil)
+            self.sortSections()
+
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(folders)
+                UserDefaults.standard.set(data, forKey: "folders")
+            } catch {
+                print("Unable to Encode Array of FolderInfos (\(error))")
+            }
+            self.sortSections()
+        }
+
+        let delete = UIContextualAction(style: .destructive, title: "Delete") {_,_,_ in
+            
+            let section = sections[indexPath.section]
+            
+            // delete the cards in the folder
+            print("remove the obj at \(section.savedFolders[indexPath.row].name)")
+            UserDefaults.standard.removeObject(forKey: section.savedFolders[indexPath.row].name)
+            
+            
             if let data = UserDefaults.standard.data(forKey: "folders") {
                 do {
                     let decoder = JSONDecoder()
                     var allFolders = try decoder.decode([FolderInfo].self, from: data)
-                    print("folders before delete: ", allFolders)
                     allFolders.removeAll(where: {$0.name == section.savedFolders[indexPath.row].name})
-                    print("folders after delete: ", allFolders)
                     folders = allFolders
 
                 } catch {
@@ -164,11 +197,16 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("Unable to Encode Array of FolderInfos (\(error))")
             }
             
-            sortSections()
-
+         
+            
+            self.sortSections()
         }
+
+        let swipeConfig = UISwipeActionsConfiguration(actions: [edit, delete])
+
+        return swipeConfig
     }
-    
+
     func sortSections(){
         folders = folders.filter{$0.owner == String(curUser)}
         let sortDictionary = Dictionary(grouping: folders, by: {String($0.name.prefix(1))})
@@ -196,6 +234,7 @@ class LibraryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         table.reloadData()
     }
+
     
     @IBAction func addFolder(_ sender: Any) {
         let contentVC = PopUpViewController()
