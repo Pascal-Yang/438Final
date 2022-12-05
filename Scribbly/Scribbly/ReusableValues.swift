@@ -134,8 +134,8 @@ public func defaultUserFlashCards() {
                 print("Unable to Encode Array of Folders (\(error))")
             }
         
-        let P1 = FlashCard(frontTxt: "", backTxt: ".", scribble:UIImage(named: "dog")!, id: 1, learned: false)
-        let P2 = FlashCard(frontTxt: "", backTxt: "", scribble:UIImage(named: "dog")!, id: 2, learned: false)
+        let P1 = FlashCard(frontTxt: "Sample space", backTxt: "The range of values of a random variable.", scribble:UIImage(named: "dog")!, id: 1, learned: false)
+        let P2 = FlashCard(frontTxt: "Random variable", backTxt: "measurable function from a probability measure space", scribble:UIImage(named: "dog")!, id: 2, learned: false)
 
         let PCardList:[FlashCard] = [P1, P2]
 
