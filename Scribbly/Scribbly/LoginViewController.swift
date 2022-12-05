@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         print(login_photo_name)
         changeInfo()
@@ -99,7 +100,7 @@ class LoginViewController: UIViewController {
         if let tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
             
             for item in tempData{
-                if item[0].contains(input_username){
+                if item[0] == input_username{
                     print("found username")
                     username_found = true
                 }
@@ -110,33 +111,30 @@ class LoginViewController: UIViewController {
                 return
             }
             else{
+                print("users: ", tempData)
                 for pairedItem in tempData{
                     if input_username == pairedItem[0]{
                         if input_password == pairedItem[1]{
                             print("username & password match")
                             login_success = true
+                            username_found = false
                             //turn to the next view controller
                             
                             //remember this user's username and photo
                             curUser = input_username
-                        }else{
+//                            alert.text = "* crrent user: " + curUser
+                            print("here")
+
+                            let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
+                            navigationController?.pushViewController(libVC, animated: true)
+                            return
+                        } else {
                             login_success = false
                             alert.text = "* incorrect password"
                         }
-                    }else{
-                        continue
                     }
                 }
             }
-        }
-            
-
-        if login_success == true{
-            
-            let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
-            navigationController?.pushViewController(libVC, animated: true)
-            username_found = false
-
         }
     }
     

@@ -110,7 +110,7 @@ class SignUpViewController: UIViewController {
             var tempData:[[String]] = []
             //now set photo to default, later change
             photoName = "default_profile"
-            tempData.append([input_username, input_password])
+            tempData.append([input_username, input_password, photoName])
             UserDefaults.standard.set(tempData, forKey: "UserInfo")
         }
         print("here")
