@@ -16,12 +16,28 @@ class AddNewController: UIViewController{
     
     var courseKey:String = ""
     
+    @IBOutlet weak var button: UIButton!
+    
     var scribble_image:UIImage? = UIImage(systemName: "house")!
     
     override func viewDidLoad() {
         print("addNewController loaded with courseKey=\(courseKey)")
+    
         super.viewDidLoad()
+        
+        background_view.layer.cornerRadius = 30
+        background_view.layer.borderWidth = 2
+        background_view.layer.borderColor = MyColor.green2.cgColor
+        scribble.layer.cornerRadius = 20
+        scribble.layer.borderColor = MyColor.green1.cgColor
+        scribble.layer.borderWidth = 2
+        scribble.layer.masksToBounds = true
+        scribble.layer.backgroundColor = MyColor.blue1.cgColor
+        button.titleLabel?.font = Font.H1
     }
+    
+
+    @IBOutlet weak var background_view: UIView!
     
     @IBOutlet weak var termInfo: UILabel!
     

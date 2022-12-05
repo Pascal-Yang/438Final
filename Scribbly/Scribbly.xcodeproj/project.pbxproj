@@ -36,6 +36,8 @@
 		45E122E5293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */; };
 		723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E52915ACD6004FD675 /* SignUpViewController.swift */; };
 		723229E82915AE92004FD675 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723229E72915AE92004FD675 /* StartUpViewController.swift */; };
+		72CC4500293B3596005F4FEA /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CC44FF293B3596005F4FEA /* SelectPhotoViewController.swift */; };
+		72CC4502293D6493005F4FEA /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CC4501293D6493005F4FEA /* EditPhotoViewController.swift */; };
 		DA1D958A29188306005D83B1 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958929188306005D83B1 /* FolderTableViewCell.swift */; };
 		DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D958B292160C5005D83B1 /* AddNewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellWithoutImage.swift; sourceTree = "<group>"; };
 		723229E52915ACD6004FD675 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		723229E72915AE92004FD675 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		72CC44FF293B3596005F4FEA /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
+		72CC4501293D6493005F4FEA /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 		DA1D958929188306005D83B1 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		DA1D958B292160C5005D83B1 /* AddNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +115,8 @@
 				458DBA972904C7D800E6C385 /* ViewController.swift */,
 				DA1D958929188306005D83B1 /* FolderTableViewCell.swift */,
 				458DBA992904C7D800E6C385 /* Main.storyboard */,
+				72CC4501293D6493005F4FEA /* EditPhotoViewController.swift */,
+				72CC44FF293B3596005F4FEA /* SelectPhotoViewController.swift */,
 				45E122E4293A72E90052EC60 /* FolderTableViewCellWithoutImage.swift */,
 				723229E72915AE92004FD675 /* StartUpViewController.swift */,
 				457B672729159A8C00B88F0A /* MyPageViewController.swift */,
@@ -229,6 +235,8 @@
 				4593655E291323B60085AA73 /* ProfileViewController.swift in Sources */,
 				DA1D958C292160C5005D83B1 /* AddNewController.swift in Sources */,
 				1DA79FBE2915E36D00B9B6CC /* LibraryTableViewCell.swift in Sources */,
+				72CC4502293D6493005F4FEA /* EditPhotoViewController.swift in Sources */,
+				72CC4500293B3596005F4FEA /* SelectPhotoViewController.swift in Sources */,
 				45936562291323D90085AA73 /* LibraryViewController.swift in Sources */,
 				723229E62915ACD6004FD675 /* SignUpViewController.swift in Sources */,
 				1DA79FC02915E3D700B9B6CC /* DisplayView.swift in Sources */,

@@ -13,22 +13,83 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var username_field: UITextField!
     @IBOutlet weak var password_field: UITextField!
+    @IBOutlet weak var background_view: UIView!
     @IBOutlet weak var alert: UILabel!
+    @IBOutlet weak var profile_photo: UIImageView!
+    @IBOutlet weak var login_button: UIButton!
     
     var input_username: String!
     var input_password: String!
     var login_success: Bool!
     var username_found: Bool!
+    var login_photo_name: String = "default_profile"
+    
+    var tempUsername = ""
+    var tempPassword = ""
+    var tempPhotoname = ""
+    var tempOriginArray:[String] = []
+    
+    @IBOutlet weak var username_title: UILabel!
+    @IBOutlet weak var password_title: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        username_field.layer.cornerRadius = 40
+        print(login_photo_name)
+        changeInfo()
+        
+        background_view.layer.cornerRadius = 30
+        profile_photo.layer.cornerRadius = 60
+        //set shadow
+        profile_photo.layer.shadowColor = UIColor.black.cgColor
+        profile_photo.layer.shadowOffset = CGSize(width: 3, height: 3)
+        profile_photo.layer.shadowRadius = 8
+        profile_photo.layer.shadowOpacity = 0.7
+        
+        username_title.font = Font.H2
+        password_title.font = Font.H2
+        login_button.titleLabel?.font = Font.H1
+        login_button.titleLabel?.font = Font.H1
+        login_button.layer.shadowRadius = 5
+        login_button.layer.shadowColor = UIColor.black.cgColor
+        login_button.layer.shadowOpacity = 0.3
+        login_button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
         login_success = false
         input_username = username_field.text!
         input_password = password_field.text!
         username_found = false
         alert.text = " "
+        
+        if var tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
+            
+//            if !(tempData.isEmpty){
+//                tempUsername = tempData[0][0]
+//                tempPassword = tempData[0][1]
+//                tempPhotoname = tempData[0][2]
+//                tempOriginArray = [tempUsername, tempPassword, tempPhotoname]
+//                print("this is the orginal first item: \(tempOriginArray)")
+//                //add this item to the tempData array again
+//                tempData[0] = ["test", "123", "default_profile"]
+//                tempData.append(tempOriginArray)
+//                print("UserInfoNow: \(tempData)")
+//                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+//
+            if tempData.isEmpty{
+                tempData.append(["test", "123", "default_profile"])
+                print("UserInfoNow: \(tempData)")
+                UserDefaults.standard.set(tempData, forKey: "UserInfo")
+            }
+            
+        }
+        
+    }
+    
+    func changeInfo(){
+        print("inside changePhoto: photoname = \(login_photo_name)")
+        profile_photo.image = UIImage(named: login_photo_name)
+        
     }
     
     @IBAction func loginPressed(_ sender: Any) {
@@ -39,7 +100,7 @@ class LoginViewController: UIViewController {
         if let tempData = UserDefaults.standard.object(forKey: "UserInfo") as? [[String]]{
             
             for item in tempData{
-                if item[0].contains(input_username){
+                if item[0] == input_username{
                     print("found username")
                     username_found = true
                 }
@@ -50,36 +111,38 @@ class LoginViewController: UIViewController {
                 return
             }
             else{
+                print("users: ", tempData)
                 for pairedItem in tempData{
                     if input_username == pairedItem[0]{
                         if input_password == pairedItem[1]{
                             print("username & password match")
                             login_success = true
+                            username_found = false
                             //turn to the next view controller
                             
-                            //remember this user
+                            //remember this user's username and photo
                             curUser = input_username
-                            UserDefaults.standard.set(input_username, forKey: "StoredUserName")
-   
-                        }else{
+//                            alert.text = "* crrent user: " + curUser
+                            print("here")
+
+                            let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
+                            navigationController?.pushViewController(libVC, animated: true)
+                            return
+                        } else {
                             login_success = false
                             alert.text = "* incorrect password"
                         }
-                    }else{
-                        continue
                     }
                 }
             }
         }
-            
-
-        if login_success == true{
-            
-            let libVC = storyboard!.instantiateViewController(withIdentifier: "LibraryView") as! LibraryViewController
-            navigationController?.pushViewController(libVC, animated: true)
-            username_found = false
-
-        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        curUser = ""
+        print("logout pressed")
+        username_field.text = ""
+        password_field.text = ""
+        profile_photo.image = UIImage(named: "default_profile")
+    }
 }
